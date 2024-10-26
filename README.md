@@ -8,14 +8,14 @@ pages, resources, and informational content designed to promote sustainability a
 
 ## Project Structure and Contributors
 
-| File                       | Type | Lead Maintainer  |
-|----------------------------|------|------------------|
-| [index.html]()             | HTML | Zekiah           |
-| [goal-1.html]()            | HTML | Ben              |
-| [goal-2.html]()            | HTML | Ben              |
-| [goal-3.html]()            | HTML | Ben              |
-| [teams.html]()             | HTML | Lewis            |
-| [form.html]()              | HTML | Sidra            |
+| File                         | Type | Lead Maintainer  |
+|------------------------------|------|------------------|
+| [index.html](./index.html)   | HTML | Zekiah           |
+| [goal-1.html](./goal-1.html) | HTML | Ben              |
+| [goal-2.html](./goal-2.html) | HTML | Ben              |
+| [goal-3.html](./goal-3.html) | HTML | Ben              |
+| [teams.html](./teams.html)   | HTML | Lewis            |
+| [form.html](./form.html)     | HTML | Sidra            |
 
 ## Development Guide:
 1. ### Cloning sources:
