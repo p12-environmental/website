@@ -1,0 +1,48 @@
+html {background-color: white;}
+
+body {
+    font-family: sans-serif, Arial;
+    color: #3F2860;
+    background-color: #EFF4F7;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+nav{
+	display:flex;
+	flex-wrap: nowrap;
+	background-color: #79bbe7;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: solid 3px #3F2860;
+}
+
+nav img{
+	display: flex;
+	max-width: 90px;
+	max-height: 90px;
+	width: auto;
+	height: auto;
+}
+
+nav ul{
+    list-style-type: none;
+	padding: 0;
+}
+
+nav ul li{
+	display: inline;
+	margin:30px;
+	padding:10px;
+}
+
+nav ul li a{
+	text-decoration: none;
+}
+
+.active .underline{
+    border-bottom: 3px solid #32312f;
+	border-radius: ;
+}
+
+
