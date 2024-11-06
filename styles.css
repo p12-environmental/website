@@ -21,7 +21,7 @@ body {
 }
 
 ul{
-	margin: 10px;
+	margin: 0px 10px;
 }
 
 nav{
@@ -35,22 +35,28 @@ nav{
 
 nav img{
 	display: flex;
-	max-width: 90px;
-	max-height: 90px;
+	max-width: 85px;
+	max-height: 85px;
 	width: auto;
 	height: auto;
 }
 
+.circle {
+	width: 10px;
+	height: 10px;
+	background-color: #fff;
+	border-radius: 50%;
+	display: inline-flex;
+}
 
 nav ul{
-    list-style-type: none;
 	padding: 0;
 }
 
 nav ul li{
-	display: inline;
-	margin:20px;
-	padding: 10px 20px;
+	display: inline-flex;
+	margin: 15px;
+	padding: 5px 20px;
 }
 
 nav ul li a{
