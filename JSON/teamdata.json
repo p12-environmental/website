@@ -1,0 +1,30 @@
+[
+	{
+		"name": "Lewis",
+		"role": "Role",
+		"bio": "bio",
+		"response": "responsibilty",
+		"contributions": "contributions"
+},
+	{
+		"name": "Zekiah",
+		"role": "Role",
+		"bio": "bio",
+		"response": "responsibilty",
+		"contributions": "contributions"
+},
+	{
+		"name": "Sidra",
+		"role": "Role",
+		"bio": "bio",
+		"response": "responsibilty",
+		"contributions": "contributions"
+},
+	{
+		"name": "Ben",
+		"role": "Role",
+		"bio": "bio",
+		"response": "responsibilty",
+		"contributions": "contributions"
+	}
+]
