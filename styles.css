@@ -84,6 +84,21 @@ nav ul li a:hover{
 }
 
 
-@keyframes hover{
+main{
+	display: flex;
+	flex-wrap: wrap;
+}
 
+.member img{
+	width: 100%;
+}
+
+.member{
+	color: #fff;
+	display: flex;
+	width: 20%;
+	background-color: #3363c2;
+    padding: 10px 11px;
+	margin: 20px auto;
+    border-radius: 20px;
 }
