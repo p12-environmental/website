@@ -12,6 +12,7 @@ html {background-color: white;}
 }
 
 
+
 body {
     font-family: sans-serif, Arial;
     color: #417aaf;
@@ -27,10 +28,17 @@ ul{
 nav{
 	display:flex;
 	flex-wrap: nowrap;
-	background-color: #c5e2ff;
 	justify-content: space-between;
 	align-items: center;
+}
+
+#wrapper nav{
+	background-color: #c5e2ff;
 	border-bottom: solid 3px #2a519d;
+}
+
+#home{
+	background-image: linear-gradient(skyblue, white);
 }
 
 nav img{
@@ -101,4 +109,28 @@ main{
     padding: 10px 11px;
 	margin: 20px auto;
     border-radius: 20px;
+}
+
+
+strong{
+	font-family: assistant;
+	font-weight: bold;
+}
+
+h1{
+	font-family: assistant;
+	font-weight: lighter;
+	display: inline-flex;
+}
+
+#home img{
+	transform: rotateY(180deg);
+	width: 50%;
+	display: inline-flex;
+}
+
+header{
+	display: inline-flex;
+	justify-content: space-between;
+    align-items: center;
 }
