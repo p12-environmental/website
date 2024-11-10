@@ -125,7 +125,7 @@ h1{
 
 #home img{
 	transform: rotateY(180deg);
-	width: 49%;
+	width: 50%;
 	display: inline-flex;
 }
 
