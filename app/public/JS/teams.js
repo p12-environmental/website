@@ -1,6 +1,6 @@
 document.querySelector(".member h4").textContent = "Testing"
 
-let localJsonFile = "JSON/teamdata.json";
+let localJsonFile = "/JSON/teamdata.json";
 
 let sectionElement = document.querySelector(".member")
 
@@ -16,13 +16,5 @@ document.addEventListener('DOMContentLoaded', ()=>{
 		const test = document.createElement('h1');
 		test.textContent = item.name;
 		schedule.appendChild(test);
-
-		
-	
-	
 	}})
-	
-	
-	
-	
-	})
+})

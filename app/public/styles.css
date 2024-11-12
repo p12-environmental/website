@@ -1,4 +1,12 @@
-html {background-color: white;}
+html, body {
+	margin: 0;
+	padding: 0;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+* {
+	box-sizing: border-box;
+}
 
 @font-face{
 	font-family: assistant;
@@ -54,20 +62,21 @@ nav img{
 	height: 10px;
 	background-color: #fff;
 	border-radius: 50%;
+	border: none;
 	display: inline-flex;
 }
 
-nav ul{
+nav ul {
 	padding: 0;
 }
 
-nav ul li{
+nav ul li {
 	display: inline-flex;
-	margin: 15px;
-	padding: 5px 20px;
 }
 
-nav ul li a{
+nav ul li a {
+	margin: 15px;
+	padding: 5px 20px;
 	text-decoration: none;
 	font-family: assistant;
 	font-size: large;
