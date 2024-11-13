@@ -75,8 +75,8 @@ nav ul li {
 }
 
 nav ul li a {
-	margin: 15px;
-	padding: 5px 20px;
+	margin: 10px;
+	padding: 10px 20px;
 	text-decoration: none;
 	font-family: assistant;
 	font-size: large;
@@ -129,7 +129,6 @@ strong{
 h1{
 	font-family: assistant;
 	font-weight: lighter;
-	display: inline-flex;
 }
 
 #home img{
@@ -143,3 +142,18 @@ header{
 	justify-content: space-between;
     align-items: center;
 }
+
+h2{
+	font-family: assistant;
+	font-weight: lighter;
+	font-size: 100px;
+}
+
+header div{
+	margin: 0px;
+}
+
+#bottom{
+	font-size: 120px;
+}
+
