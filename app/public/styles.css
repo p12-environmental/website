@@ -10,13 +10,13 @@ html, body {
 
 @font-face{
 	font-family: assistant;
-	src: url(assets/Assistant-Bold.ttf);
+	src: url(assets/assistant-bold.ttf);
 	font-weight: bold;
 }
 
 @font-face{
 	font-family: assistant;
-	src: url(assets/Assistant-Medium.ttf);
+	src: url(assets/assistant-medium.ttf);
 }
 
 
