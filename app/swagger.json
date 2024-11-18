@@ -1,0 +1,155 @@
+{
+	"openapi": "3.1.0",
+	"info": {
+		"title": "P12 Website API",
+		"description": "Serverside expressJS API definition for the P12 environmental group project website",
+		"version": "1.0.0"
+	},
+	"servers": [
+		{
+			"url": "http://localhost:8080/"
+		}
+	],
+	"paths": {
+		"/mailing/subscribe": {
+			"post": {
+				"summary": "Subscribe to mailing list",
+				"description": "Adds the specified email to the site mailing list",
+				"parameters": [
+					{
+						"name": "client",
+						"in": "query",
+						"description": "Client type that request was sent from (browser|headless)",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"email": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"email"
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Success - Email subscribed",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"message": {
+											"type": "string",
+											"example": "Email subscribed successfully. Check your inbox to find a confirmation email."
+										}
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad Request - Invalid Input",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"message": {
+											"type": "string",
+											"example": "Specified email was invalid"
+										}
+									},
+									"required": [
+										"message"
+									]
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/mailing/unsubscribe": {
+			"post": {
+				"summary": "Unsubscribe from mailing list",
+				"description": "Removes the specified email from the site mailing list using the provided unsubscription token",
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"email": {
+										"type": "string"
+									},
+									"unsubscribeToken": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"email",
+									"unsubscribeToken"
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Success - Email unsubscribed",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"message": {
+											"type": "string",
+											"example": "Email unsubscribed successfully."
+										}
+									}
+								}
+							},
+							"text/html": {
+								"example": "<html><head><title>Unsubscribe</head><body><h1>👋 Sorry to see you go!</h1><p>You have successfully unsubscribed from our mailing list. You shouldn't receive emails from us again.</p></body></html>"
+							}
+						}
+					},
+					"400": {
+						"description": "Bad Request - Invalid Input",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"message": {
+											"type": "string",
+											"example": "Specified email or unsubscription token was invalid"
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {}
+	}
+}

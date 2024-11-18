@@ -8,22 +8,27 @@ html, body {
 	box-sizing: border-box;
 }
 
+html{
+	height: 100%;
+	width: 100%;
+}
+
 @font-face{
 	font-family: assistant;
-	src: url(assets/Assistant-Bold.ttf);
+	src: url(assets/assistant-bold.ttf);
 	font-weight: bold;
 }
 
 @font-face{
 	font-family: assistant;
-	src: url(assets/Assistant-Medium.ttf);
+	src: url(assets/assistant-medium.ttf);
 }
 
 
 
 body {
     font-family: sans-serif, Arial;
-    color: #417aaf;
+    color: #3363c2;
     background-color: #EFF4F7;
     font-size: 16px;
     line-height: 1.5;
@@ -75,8 +80,8 @@ nav ul li {
 }
 
 nav ul li a {
-	margin: 15px;
-	padding: 5px 20px;
+	margin: 10px;
+	padding: 10px 20px;
 	text-decoration: none;
 	font-family: assistant;
 	font-size: large;
@@ -118,6 +123,7 @@ main{
     padding: 10px 11px;
 	margin: 20px auto;
     border-radius: 20px;
+	min-width: 320px;
 }
 
 
@@ -129,13 +135,13 @@ strong{
 h1{
 	font-family: assistant;
 	font-weight: lighter;
-	display: inline-flex;
 }
 
 #home img{
 	transform: rotateY(180deg);
 	width: 50%;
 	display: inline-flex;
+	margin-right: 100px;
 }
 
 header{
@@ -144,25 +150,43 @@ header{
     align-items: center;
 }
 
+h2{
+	font-family: assistant;
+	font-weight: lighter;
+	font-size: 150px;
+	margin: 0px;
+	line-height: 90%;
+}
 
-.box-one,.box-two,.box-three {
-	width:100%;
-	height:33%; 
-	text-align:center;
-	}
-	
-	.box-one {
-	background:cyan;
-	}
-	
-	.box-two {
-	background:dodgerblue;
-	}
-	
-	.box-three {
-	background:hotpink;
-	}
+h3{
+	margin-top: 15px;
+	font-family: assistant;
+	font-weight: lighter;
+	font-size: 25px;
+}
 
-.box-one,.box-three{
-	height: 20em;
+
+header div{
+	padding-left: 50px;
+}
+
+#bottom{
+	font-size: 170px;
+}
+
+#homeBtn{
+	font-family: assistant;
+	font-weight: bold;
+	color: #EFF4F7;
+	background-color: #3363c2;
+	font-size: 30px;
+	border: solid 10px #3363c2 ;
+	border-radius: 50px;
+	width: 30%;
+	cursor: pointer;
+}
+
+
+@media only screen and (max-width:786px){
+
 }
