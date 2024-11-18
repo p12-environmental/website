@@ -143,3 +143,26 @@ header{
 	justify-content: space-between;
     align-items: center;
 }
+
+
+.box-one,.box-two,.box-three {
+	width:100%;
+	height:33%; 
+	text-align:center;
+	}
+	
+	.box-one {
+	background:cyan;
+	}
+	
+	.box-two {
+	background:dodgerblue;
+	}
+	
+	.box-three {
+	background:hotpink;
+	}
+
+.box-one,.box-three{
+	height: 20em;
+}
