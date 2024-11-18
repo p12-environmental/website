@@ -1,4 +1,4 @@
-const localJsonFile = "/JSON/teamdata.json";
+const localJsonFile = "JSON/teamdata.json";
 
 class MemberItem extends HTMLElement {
 	constructor() {
