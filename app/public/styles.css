@@ -55,7 +55,6 @@ nav{
 }
 
 nav img{
-	display: flex;
 	max-width: 85px;
 	max-height: 85px;
 	width: auto;
@@ -150,7 +149,6 @@ header{
     align-items: center;
 }
 
-<<<<<<< Updated upstream:app/public/styles.css
 h2{
 	font-family: assistant;
 	font-weight: lighter;
@@ -168,9 +166,6 @@ h3{
 
 
 
-h4{
-	
-}
 
 
 header div{
@@ -197,7 +192,7 @@ header div{
 @media only screen and (max-width:786px){
 
 }
-=======
+/*=================*/
 
 #form-container h2 {
     font-family: 'Assistant', sans-serif;
@@ -222,27 +217,24 @@ body {
 
 nav {
     width: 100%;
-    background-color: #3363c2;
     color: white;
     padding: 10px 0;
-    position: fixed; 
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center; 
-    align-items: center;
     z-index: 1000; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-nav a {
+#home nav{
+    box-shadow: none;
+}
+
+/*nav a {
     color: white;
     text-decoration: none;
     font-family: 'Assistant', sans-serif;
     font-size: 16px;
     padding: 8px 15px;
     margin: 0 10px;
-}
+}*/
 
 nav a:hover {
     background-color: #2554a7;
@@ -354,4 +346,3 @@ main {
         gap: 10px;
     }
 }
->>>>>>> Stashed changes:styles.css
