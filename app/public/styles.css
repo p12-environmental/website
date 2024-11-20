@@ -150,6 +150,7 @@ header{
     align-items: center;
 }
 
+<<<<<<< Updated upstream:app/public/styles.css
 h2{
 	font-family: assistant;
 	font-weight: lighter;
@@ -196,3 +197,161 @@ header div{
 @media only screen and (max-width:786px){
 
 }
+=======
+
+#form-container h2 {
+    font-family: 'Assistant', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #3363c2;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+body {
+    background: linear-gradient(to bottom, #add8e6, #ffffff); 
+    font-family: 'Assistant', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+}
+
+
+nav {
+    width: 100%;
+    background-color: #3363c2;
+    color: white;
+    padding: 10px 0;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    z-index: 1000; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Assistant', sans-serif;
+    font-size: 16px;
+    padding: 8px 15px;
+    margin: 0 10px;
+}
+
+nav a:hover {
+    background-color: #2554a7;
+    border-radius: 5px;
+}
+
+
+main {
+    flex: 1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top: 60px; 
+}
+
+#contact-us {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#info-text h2 {
+    font-family: 'Assistant', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: #3363c2;
+    margin-bottom: 10px;
+}
+
+#info-text p {
+    font-family: 'Assistant', sans-serif;
+    font-size: 16px;
+    color: #3363c2;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+
+#form-container {
+    background-color: #ffffff; 
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+}
+
+#signup-form {
+    display: flex;
+    flex-direction: column; 
+    gap: 15px; 
+}
+
+
+#signup-form label {
+    font-family: 'Assistant', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #3363c2;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+
+#signup-form input[type="text"],
+#signup-form input[type="email"],
+#signup-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+#signup-form textarea {
+    resize: none;
+    height: 80px;
+}
+
+
+#signup-form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3363c2;
+    color: white;
+    font-family: 'Assistant', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+#signup-form button:hover {
+    background-color: #2554a7;
+}
+
+
+@media screen and (max-width: 600px) {
+    #form-container {
+        padding: 20px;
+    }
+
+    #signup-form {
+        gap: 10px;
+    }
+}
+>>>>>>> Stashed changes:styles.css
