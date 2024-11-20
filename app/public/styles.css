@@ -123,6 +123,7 @@ main{
 	margin: 20px auto;
     border-radius: 20px;
 	min-width: 320px;
+    box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -134,6 +135,7 @@ strong{
 h1{
 	font-family: assistant;
 	font-weight: lighter;
+    margin: 0px;
 }
 
 #home img{
@@ -143,10 +145,16 @@ h1{
 	margin-right: 100px;
 }
 
+#home header{
+    display: flex;
+    flex-direction: row;
+}
+
 header{
-	display: inline-flex;
-	justify-content: space-between;
+	display: flex;
     align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
 }
 
 h2{
@@ -158,17 +166,14 @@ h2{
 }
 
 h3{
-	margin-top: 15px;
+	margin: 15px;
 	font-family: assistant;
 	font-weight: lighter;
 	font-size: 25px;
 }
 
 
-
-
-
-header div{
+#home div{
 	padding-left: 50px;
 }
 
@@ -243,12 +248,11 @@ nav a:hover {
 
 
 main {
-    flex: 1; 
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    margin-top: 60px; 
+    margin-top: 30px; 
 }
 
 #contact-us {
