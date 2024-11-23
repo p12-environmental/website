@@ -18,6 +18,7 @@ class MemberItem extends HTMLElement {
 		this.biographyItem = document.createElement("li")
 		this.responsibilityItem = document.createElement("li")
 		this.contributionsItem = document.createElement("li")
+		
 
 		this.detailsList.append(this.biographyItem, this.responsibilityItem, this.contributionsItem);
 		this.figcaption.append(this.nameHeading,this.roleItem, this.detailsList);

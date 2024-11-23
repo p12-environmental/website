@@ -2,10 +2,10 @@
 	{
 		"image":"assets/default-profile.png",
 		"name": "Lewis",
-		"role": "God",
-		"biography": "god god",
-		"responsibility": "responsibilty",
-		"contributions": "contributions"
+		"role": "Designer and Coordinator",
+		"biography": "Love helping to save the planet",
+		"responsibility": "Responsible for the pages overall design/UI and managing team members",
+		"contributions": "Writing styles.css and tweaking HTML,JS and JSON"
 	},
 	{
 		"image":"assets/default-profile.png",
