@@ -39,7 +39,7 @@ nav{
 	display:flex;
 	flex-wrap: nowrap;
 	justify-content: space-between;
-	align-items: center;
+    align-items: flex-start;
 }
 
 #wrapper nav{
@@ -54,8 +54,8 @@ nav{
 nav img{
 	max-width: 85px;
 	max-height: 85px;
-	width: auto;
-	height: auto;
+    position: absolute;
+    top: 6px;
 }
 
 .circle {
@@ -266,7 +266,7 @@ nav {
     margin: 0 10px;
 }*/
 
-nav a:hover {
+nav a:hover{
     background-color: #2554a7;
     border-radius: 5px;
 }
