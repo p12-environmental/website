@@ -64,6 +64,12 @@ app.post("/mailing/subscribe", async (req, res) => {
 		res.status(400).json({ "message": "Specified email was invalid" });
 		return res.end();
 	}
+	const subscribedStmt = db.prepare("SELECT * FROM MailingList WHERE email = ?");
+	if (subscribedStmt.get(email) != null) {
+		res.status(400).json({ "message": "This email has already been subscribed to the mailing list" });
+		return res.end();
+	}
+
 	const date = Date.now();
 	const unsubscribeToken = crypto.randomBytes(64).toString("hex");
 	const stmt = db.prepare("INSERT INTO MailingList (email, date, unsubscribeToken) VALUES (?, ?, ?)");
