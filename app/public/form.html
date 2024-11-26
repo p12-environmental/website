@@ -4,16 +4,14 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Form</title>
-
 	<link rel="stylesheet" href="styles.css">
 	<form id="signup-form" action="/submit" method="POST">
-
 </head>
 <body>
 	<div id="wrapper">
 		<nav>
 			<a href="index.html"><img src="assets/logo.png" alt="logo"></a>
-			<ul>
+			<ul class="nav-list">
 				<li><a href="index.html">Home</a></li>
 				<li><hr class="circle"></li>
 				<li><a href="goals.html">Our Goals</a></li>
@@ -49,7 +47,7 @@
 						</div>
 						<div class="form-field">
 							<label for="comments">What can we help you with?</label>
-							<textarea id="comments" name="comments"></textarea>
+							<textarea id="comments" name="comments" maxlength="300"></textarea>
 						</div>
 						<button type="submit">Submit</button>
 					</form>
@@ -60,5 +58,3 @@
 	</div>
 </body>
 </html>
-
-
