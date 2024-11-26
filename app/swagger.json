@@ -166,6 +166,82 @@
 					}
 				}
 			}
+		},
+		"/contact": {
+			"post": {
+				"summary": "Submit a contact form",
+				"description": "Submits a contact form with user details and message",
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"firstName": {
+										"type": "string",
+										"description": "First name of the contact"
+									},
+									"lastName": {
+										"type": "string",
+										"description": "Last name of the contact"
+									},
+									"email": {
+										"type": "string",
+										"description": "Email address of the contact"
+									},
+									"message": {
+										"type": "string",
+										"description": "Message from the contact (max 300 characters)"
+									}
+								},
+								"required": [
+									"firstName",
+									"email",
+									"message"
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Contact form submitted successfully",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"message": {
+											"type": "string",
+											"example": "Contact form submitted successfully"
+										}
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad Request - Invalid Input",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"message": {
+											"type": "string",
+											"example": "Specified name, email, or message was invalid"
+										}
+									},
+									"required": [
+										"message"
+									]
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 	},
 	"components": {

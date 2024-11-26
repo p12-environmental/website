@@ -13,13 +13,13 @@ html{
 	width: 100%;
 }
 
-@font-face{
+@font-face {
 	font-family: assistant;
 	src: url(assets/assistant-bold.ttf);
 	font-weight: bold;
 }
 
-@font-face{
+@font-face {
 	font-family: assistant;
 	src: url(assets/assistant-medium.ttf);
 }
@@ -61,23 +61,23 @@ body {
 	background: #555;
 }
 
-nav{
+nav {
 	display:flex;
 	flex-wrap: nowrap;
 	justify-content: space-between;
 	align-items: flex-start;
 }
 
-#wrapper nav{
+#wrapper nav {
 	background-color: #c5e2ff;
 	border-bottom: solid 3px #2a519d;
 }
 
-#home{
+#home {
 	background-image: linear-gradient(skyblue, white);
 }
 
-nav img{
+nav img {
 	max-width: 85px;
 	max-height: 85px;
 	position: absolute;
@@ -122,23 +122,23 @@ nav ul li a:hover {
 	background-color: #2554a7;
 }
 
-.active{
+.active {
 	border-bottom:solid 4px #3363c2;
 	border-radius: 4px;
 }
 
 
-main{
+main {
 	display: flex;
 	flex-wrap: wrap;
 }
 
-.member img{
+.member img {
 	width: 100%;
 	border-radius: 50%;
 }
 
-.member{
+.member {
 	color: #fff;
 	width: 20%;
 	background-color: #3363c2;
@@ -149,51 +149,51 @@ main{
 	box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.3);
 }
 
-.member ul{
+.member ul {
 	list-style-type: none;
 	margin:0px;
 	padding:0px;
 }
 
-.member ul li{
+.member ul li {
 	margin:10px 0px;
 	padding:0px;
 }
 
 .member li::before {
 	content: "> ";
-  }
+}
 
-strong{
+strong {
 	font-family: assistant;
 	font-weight: bold;
 }
 
-h1{
+h1 {
 	font-family: assistant;
 	font-weight: lighter;
 	margin: 0px;
 }
 
-#home img{
+#home img {
 	transform: rotateY(180deg);
 	width: 50vw;
 	margin-right: 50px;
 }
 
-#home header{
+#home header {
 	display: flex;
 	flex-direction: row;
 }
 
-header{
+header {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
 	margin-top: 30px;
 }
 
-h2{
+h2 {
 	font-family: assistant;
 	font-weight: lighter;
 	font-size: 150px;
@@ -201,7 +201,8 @@ h2{
 	line-height: 90%;
 }
 
-h3{
+h3 {
+	
 	font-family: assistant;
 	font-weight: lighter;
 	font-size: 1.5vw;
@@ -211,12 +212,12 @@ h3{
 	text-align: center;
 }
 
-.member h3{
+.member h3 {
 	margin: 0px;
 	text-align: center;
 }
 
-h4{
+h4 {
 	margin-top:3px;
 	margin-bottom:10px;
 	text-align: center;
@@ -224,7 +225,7 @@ h4{
 }
 
 
-#home div{
+#home div {
 	padding-left: 50px;
 	width: auto;
 }
@@ -237,7 +238,7 @@ h4{
 	font-size: 8vw;
 }
 
-#homeBtn{
+#homeBtn {
 	font-family: assistant;
 	font-weight: bold;
 	color: #EFF4F7;
@@ -283,7 +284,7 @@ nav {
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-#home nav{
+#home nav {
 	box-shadow: none;
 }
 
