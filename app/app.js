@@ -1,20 +1,41 @@
-import express from "express"
+import express from "express";
 import Database from 'better-sqlite3';
 import swaggerUi from "swagger-ui-express";
+import nodemailer from "nodemailer";
+import crypto from "crypto";
 import fs from "fs";
 
-const port = 8080
+const configPath = "server-config.json"
+if (!fs.existsSync(configPath)) {
+	fs.writeFileSync(configPath, JSON.stringify({
+		port: 8080,
+		email: {
+			host: "",
+			port: 587,
+			secure: false,
+			auth: {
+				user: "",
+				pass: "",
+			}		
+		}
+	}, null, "\t"))
+	console.log("Config file created at", configPath, "please edit before running this server again")
+	process.exit(0)
+}
+const config = JSON.parse(fs.readFileSync(configPath).toString())
 const app = express()
 const swaggerDocument = JSON.parse(fs.readFileSync("swagger.json").toString())
 const db = new Database("server.db");
 db.pragma("journal_mode = WAL");
-const createSubscribedEmails = 
-	`CREATE TABLE IF NOT EXISTS SubscribedEmails(
+const createMailingList = 
+	`CREATE TABLE IF NOT EXISTS MailingList(
 		email TEXT NOT NULL,
 		date INTEGER,
-		unsubscribeToken TEXT
+		unsubscribeToken TEXT UNIQUE,
+		PRIMARY KEY (email)
 	);`
-db.exec(createSubscribedEmails)
+db.exec(createMailingList)
+const transporter = nodemailer.createTransport(config.email);
 
 // Add static file hosting middleware
 app.use(express.static("public"));
@@ -38,31 +59,44 @@ app.post("/mailing/subscribe", (req, res) => {
 	// Validate email, TODO: Use regexes or similar to check it is formatted correctly
 	if (!email || typeof email !== "string") {
 		// Status 400 bad request - Data supplied to server was invalid
-		res.writeHead(400, { "content-type": "application/json" })
-		res.write(JSON.stringify({ "message": "Specified email was invalid" }))
+		res.status(400).json({ "message": "Specified email was invalid" })
 		return res.end();
 	}
-	//const stmt = db.prepare("INSERT INTO SubscribedEmails (email, date, unsubscribeToken) VALUES (?, ?, ?)");
-	//stmt.run();
+	const date = Date.now()
+	const unsubscribeToken = crypto.randomBytes(64).toString("hex")
+	const stmt = db.prepare("INSERT INTO MailingList (email, date, unsubscribeToken) VALUES (?, ?, ?)");
+	stmt.run(email, date, unsubscribeToken);
 })
 
 app.post("/mailing/unsubscribe", (req, res) => {
 	const { email, unsubscribeToken } = req.body
 	if (!email || typeof email !== "string") {
 		// Status 400 bad request - Data supplied to server was invalid
-		res.writeHead(400, { "content-type": "application/json" })
-		res.write(JSON.stringify({ "message": "Specified email was invalid" }))
+		res.status(200).json({ "message": "Specified email was invalid" })
 		return res.end();
 	}
 	if (!unsubscribeToken || typeof unsubscribeToken !== "string") {
 		// Status 400 bad request - Data supplied to server was invalid
-		res.writeHead(400, { "content-type": "application/json" })
-		res.write(JSON.stringify({ "message": "Specified unsubscription token was invalid" }))
+		res.status(200).json({ "message": "Specified unsubscription token was invalid" })
 		return res.end();
 	}
+	const stmt = db.prepare("DELETE FROM MailingList WHERE email = ? AND unsubscribeToken = ?");
+	stmt.run(email, unsubscribeToken);
 
+	const accept = req.headers["accept"] ?? req.query["accept"];
+	if (accept === "text/html") {
+		res.writeHead(200, { "content-type": "text/html" });
+		res.write("<html>\n<head>\n\t<title>Unsubscribe</title>\n</head>\n<body>\n\t<h1>👋 Sorry to see you go!</h1>\n\t<p>You have successfully unsubscribed from our mailing list. You shouldn't receive emails from us again.</p>\n</body>\n</html>");
+	}
+	else if (!accept || accept === "application/json") {
+		res.status(200).json({ message: "You have successfully unsubscribed from the mailing list"})
+	}
+	else {
+		res.status(415).json({ message: "Specified accepted content type was invalid"})
+	}
+	return res.end();
 })
 
-app.listen(port, () => {
-	console.log(`P12 Website server running on port ${port}`)
+app.listen(config.port, () => {
+	console.log(`P12 Website server running on port ${config.port}`)
 })

@@ -27,11 +27,11 @@ html{
 
 
 body {
-    font-family: sans-serif, Arial;
-    color: #3363c2;
-    background-color: #EFF4F7;
-    font-size: 16px;
-    line-height: 1.5;
+	font-family: sans-serif, Arial;
+	color: #3363c2;
+	background-color: #EFF4F7;
+	font-size: 16px;
+	line-height: 1.5;
 }
 
 
@@ -39,7 +39,7 @@ nav{
 	display:flex;
 	flex-wrap: nowrap;
 	justify-content: space-between;
-    align-items: flex-start;
+	align-items: flex-start;
 }
 
 #wrapper nav{
@@ -54,8 +54,8 @@ nav{
 nav img{
 	max-width: 85px;
 	max-height: 85px;
-    position: absolute;
-    top: 6px;
+	position: absolute;
+	top: 6px;
 }
 
 .circle {
@@ -69,7 +69,7 @@ nav img{
 
 nav ul {
 	padding: 0;
-    margin: 0px 10px;
+	margin: 0px 10px;
 }
 
 nav ul li {
@@ -79,23 +79,22 @@ nav ul li {
 nav ul li a {
 	margin: 10px;
 	padding: 10px 20px;
+	border-radius: 5px;
 	text-decoration: none;
 	font-family: assistant;
 	font-size: large;
 	font-weight: bold;
+	transition: .2s background-color, .2s color;
 }
 
-nav ul li a:visited{
-    color: #3363c2;
+nav ul li a:visited {
+	color: #3363c2;
 }
 
-
-nav ul li a:hover{
-	animation-duration: 5s;
-    animation-name: hover;
-    animation-iteration-count: 1;
+nav ul li a:hover {
+	color: white;
+	background-color: #2554a7;
 }
-
 
 .active{
 	border-bottom:solid 4px #3363c2;
@@ -110,33 +109,33 @@ main{
 
 .member img{
 	width: 100%;
-    border-radius: 50%;
+	border-radius: 50%;
 }
 
 .member{
 	color: #fff;
 	width: 20%;
 	background-color: #3363c2;
-    padding: 10px 11px;
+	padding: 10px 11px;
 	margin: 20px auto;
-    border-radius: 20px;
+	border-radius: 20px;
 	min-width: 320px;
-    box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.3);
 }
 
 .member ul{
-    list-style-type: none;
-    margin:0px;
-    padding:0px;
+	list-style-type: none;
+	margin:0px;
+	padding:0px;
 }
 
 .member ul li{
-    margin:10px 0px;
-    padding:0px;
+	margin:10px 0px;
+	padding:0px;
 }
 
 .member li::before {
-    content: "> ";
+	content: "> ";
   }
 
 strong{
@@ -147,7 +146,7 @@ strong{
 h1{
 	font-family: assistant;
 	font-weight: lighter;
-    margin: 0px;
+	margin: 0px;
 }
 
 #home img{
@@ -158,15 +157,15 @@ h1{
 }
 
 #home header{
-    display: flex;
-    flex-direction: row;
+	display: flex;
+	flex-direction: row;
 }
 
 header{
 	display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 30px;
+	align-items: center;
+	flex-direction: column;
+	margin-top: 30px;
 }
 
 h2{
@@ -178,7 +177,7 @@ h2{
 }
 
 h3{
-    
+	
 	font-family: assistant;
 	font-weight: lighter;
 	font-size: 25px;
@@ -186,15 +185,15 @@ h3{
 }
 
 .member h3{
-    margin: 0px;
-    text-align: center;
+	margin: 0px;
+	text-align: center;
 }
 
 h4{
-    margin-top:3px;
-    margin-bottom:10px;
-    text-align: center;
-    font-size: 23px;
+	margin-top:3px;
+	margin-bottom:10px;
+	text-align: center;
+	font-size: 23px;
 }
 
 
@@ -225,151 +224,136 @@ h4{
 /*=================*/
 
 #form-container h2 {
-    font-family: 'Assistant', sans-serif;
-    font-size: 24px;
-    font-weight: bold;
-    color: #3363c2;
-    text-align: center;
-    margin-bottom: 20px;
+	font-family: 'Assistant', sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+	color: #3363c2;
+	text-align: center;
+	margin-bottom: 20px;
 }
 
 
 body {
-    background: linear-gradient(to bottom, #add8e6, #ffffff); 
-    font-family: 'Assistant', sans-serif;
-    margin: 0;
-    padding: 0;
-    height: 100vh; 
-    display: flex;
-    flex-direction: column;
+	background: linear-gradient(to bottom, #add8e6, #ffffff); 
+	font-family: 'Assistant', sans-serif;
+	margin: 0;
+	padding: 0;
+	height: 100vh; 
+	display: flex;
+	flex-direction: column;
 }
 
 
 nav {
-    width: 100%;
-    color: white;
-    padding: 10px 0;
-    z-index: 1000; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	width: 100%;
+	color: white;
+	padding: 10px 0;
+	z-index: 1000; 
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 #home nav{
-    box-shadow: none;
+	box-shadow: none;
 }
-
-/*nav a {
-    color: white;
-    text-decoration: none;
-    font-family: 'Assistant', sans-serif;
-    font-size: 16px;
-    padding: 8px 15px;
-    margin: 0 10px;
-}*/
-
-nav a:hover{
-    background-color: #2554a7;
-    border-radius: 5px;
-}
-
 
 main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 #contact-us {
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
+	display: flex;
+	flex-direction: column; 
+	align-items: center;
+	max-width: 800px;
+	margin: 0 auto;
+	text-align: center;
 }
 
 #info-text h2 {
-    font-family: 'Assistant', sans-serif;
-    font-size: 28px;
-    font-weight: bold;
-    color: #3363c2;
-    margin-bottom: 10px;
+	font-family: 'Assistant', sans-serif;
+	font-size: 28px;
+	font-weight: bold;
+	color: #3363c2;
+	margin-bottom: 10px;
 }
 
 #info-text p {
-    font-family: 'Assistant', sans-serif;
-    font-size: 16px;
-    color: #3363c2;
-    line-height: 1.5;
-    margin-bottom: 20px;
+	font-family: 'Assistant', sans-serif;
+	font-size: 16px;
+	color: #3363c2;
+	line-height: 1.5;
+	margin-bottom: 20px;
 }
 
 
 #form-container {
-    background-color: #ffffff; 
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    width: 100%;
-    max-width: 500px;
+	background-color: #ffffff; 
+	border-radius: 10px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	padding: 30px;
+	width: 100%;
+	max-width: 500px;
 }
 
 #signup-form {
-    display: flex;
-    flex-direction: column; 
-    gap: 15px; 
+	display: flex;
+	flex-direction: column; 
+	gap: 15px; 
 }
 
 
 #signup-form label {
-    font-family: 'Assistant', sans-serif;
-    font-size: 14px;
-    font-weight: bold;
-    color: #3363c2;
-    margin-bottom: 5px;
-    text-align: left;
+	font-family: 'Assistant', sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #3363c2;
+	margin-bottom: 5px;
+	text-align: left;
 }
 
 
 #signup-form input[type="text"],
 #signup-form input[type="email"],
 #signup-form textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    box-sizing: border-box;
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-size: 14px;
+	box-sizing: border-box;
 }
 
 #signup-form textarea {
-    resize: none;
-    height: 80px;
+	resize: none;
+	height: 80px;
 }
 
 
 #signup-form button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #3363c2;
-    color: white;
-    font-family: 'Assistant', sans-serif;
-    font-size: 16px;
-    cursor: pointer;
-    align-self: flex-start;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	background-color: #3363c2;
+	color: white;
+	font-family: 'Assistant', sans-serif;
+	font-size: 16px;
+	cursor: pointer;
+	align-self: flex-start;
 }
 
 #signup-form button:hover {
-    background-color: #2554a7;
+	background-color: #2554a7;
 }
 
 
 @media screen and (max-width: 600px) {
-    #form-container {
-        padding: 20px;
-    }
+	#form-container {
+		padding: 20px;
+	}
 
-    #signup-form {
-        gap: 10px;
-    }
+	#signup-form {
+		gap: 10px;
+	}
 }

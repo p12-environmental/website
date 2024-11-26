@@ -15,17 +15,6 @@
 			"post": {
 				"summary": "Subscribe to mailing list",
 				"description": "Adds the specified email to the site mailing list",
-				"parameters": [
-					{
-						"name": "client",
-						"in": "query",
-						"description": "Client type that request was sent from (browser|headless)",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					}
-				],
 				"requestBody": {
 					"required": true,
 					"content": {
@@ -87,6 +76,17 @@
 			"post": {
 				"summary": "Unsubscribe from mailing list",
 				"description": "Removes the specified email from the site mailing list using the provided unsubscription token",
+				"parameters": [
+					{
+						"name": "accept",
+						"in": "query",
+						"description": "Client type that request was sent from (text/html|application/json)",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
 				"requestBody": {
 					"required": true,
 					"content": {
@@ -125,7 +125,7 @@
 								}
 							},
 							"text/html": {
-								"example": "<html><head><title>Unsubscribe</head><body><h1>👋 Sorry to see you go!</h1><p>You have successfully unsubscribed from our mailing list. You shouldn't receive emails from us again.</p></body></html>"
+								"example": "<html>\n<head>\n\t<title>Unsubscribe</title>\n</head>\n<body>\n\t<h1>👋 Sorry to see you go!</h1>\n\t<p>You have successfully unsubscribed from our mailing list. You shouldn't receive emails from us again.</p>\n</body>\n</html>"
 							}
 						}
 					},
@@ -141,6 +141,25 @@
 											"example": "Specified email or unsubscription token was invalid"
 										}
 									}
+								}
+							}
+						}
+					},
+					"415": {
+						"description": "Unsupported Media Type - Invalid accepted content type",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"message": {
+											"type": "string",
+											"example": "Specified accepted content type was invalid"
+										}
+									},
+									"required": [
+										"message"
+									]
 								}
 							}
 						}

@@ -15,20 +15,20 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 
 app.get('/form', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/form.html'));
+	res.sendFile(path.join(__dirname, '../public/form.html'));
 });
 
 app.post('/submit', (req, res) => {
-    const { firstName, lastName, email, comments } = req.body;
-    console.log('Form Submitted:', req.body);
+	const { firstName, lastName, email, comments } = req.body;
+	console.log('Form Submitted:', req.body);
 
-    
-    res.redirect('/success.html');
+	
+	res.redirect('/success.html');
 });
 
 
 const PORT = 3000;
 app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
+	console.log(`Server running at http://localhost:${PORT}`);
 });
 

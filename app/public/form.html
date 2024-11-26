@@ -13,71 +13,50 @@
 	<div id="wrapper">
 		<nav>
 			<a href="index.html"><img src="assets/logo.png" alt="logo"></a>
-
 			<ul>
 				<li><a href="index.html">Home</a></li>
-				<div class="circle"></div>
+				<li><hr class="circle"></li>
 				<li><a href="goals.html">Our Goals</a></li>
-				<div class="circle"></div>
+				<li><hr class="circle"></li>
 				<li><a href="teams.html">The Team</a></li>
-				<div class="circle"></div>
+				<li><hr class="circle"></li>
 				<li><a class="active" href="form.html">Newsletter</a></li>
 			</ul>
 		</nav>
-
 		<header>
 			<h1>Newsletter</h1>
 			<a><i id="hamburger" class="fa fa-bars"></i></a>
 		</header>
-
-		<form>
-			<fieldset>
-				<legend>
-					<h4>Contact us</h4>
-				</legend>
-			</fieldset>
-		</form>
-
-		<header>
-			<header>
-				<main>
-					<div id="contact-us">
-						<div id="info-text">
-							<h2>Contact Us</h2>
-							<p>Need to get in touch with us? Either fill out the form with your inquiry or find the department email you'd like to contact below.</p>
+		<main>
+			<div id="contact-us">
+				<div id="info-text">
+					<h2>Contact Us</h2>
+					<p>Need to get in touch with us? Either fill out the form with your inquiry or find the department email you'd like to contact below.</p>
+				</div>
+				<div id="form-container">
+					<form id="signup-form">
+						<div class="form-field">
+							<label for="first-name">First name*</label>
+							<input type="text" id="first-name" name="first-name" required>
 						</div>
-						<div id="form-container">
-							<form id="signup-form">
-								<div class="form-field">
-									<label for="first-name">First name*</label>
-									<input type="text" id="first-name" name="first-name" required>
-								</div>
-								<div class="form-field">
-									<label for="last-name">Last name</label>
-									<input type="text" id="last-name" name="last-name">
-								</div>
-								<div class="form-field">
-									<label for="email">Email*</label>
-									<input type="email" id="email" name="email" required>
-								</div>
-								<div class="form-field">
-									<label for="comments">What can we help you with?</label>
-									<textarea id="comments" name="comments"></textarea>
-								</div>
-								<button type="submit">Submit</button>
-							</form>
+						<div class="form-field">
+							<label for="last-name">Last name</label>
+							<input type="text" id="last-name" name="last-name">
 						</div>
-					</div>
-				</main>
-				
-				
-			</header>
-			
-		
-		
-				<a><i id="hamburger" class="fa fa-bars"></i></a>
-		</header>
-
+						<div class="form-field">
+							<label for="email">Email*</label>
+							<input type="email" id="email" name="email" required>
+						</div>
+						<div class="form-field">
+							<label for="comments">What can we help you with?</label>
+							<textarea id="comments" name="comments"></textarea>
+						</div>
+						<button type="submit">Submit</button>
+					</form>
+				</div>
+			</div>
+		</main>
+		<a><i id="hamburger" class="fa fa-bars"></i></a>
 	</div>
 </body>
 </html>
