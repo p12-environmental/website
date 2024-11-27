@@ -39,7 +39,6 @@ body {
 /* width */
 ::-webkit-scrollbar {
 	width: 8px;
-	max-height: ;
   }
   
 /* Track */
@@ -175,10 +174,27 @@ h1 {
 	margin: 0px;
 }
 
-#home img {
+#home header img {
 	transform: rotateY(180deg);
 	width: 50vw;
 	margin-right: 50px;
+}
+
+.hori{
+	position: fixed;
+	transform: rotate(90deg);
+	z-index: -3;
+	height: 150vw;
+	right: 30vh;
+	top: 10vh;
+}
+
+.vert{
+	height: 180vh;
+	position: fixed;
+	left: 90vw;
+	top: -20vh;
+	z-index: -10;
 }
 
 #home header {
@@ -186,7 +202,7 @@ h1 {
 	flex-direction: row;
 }
 
-header {
+header{
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -201,7 +217,7 @@ h2 {
 	line-height: 90%;
 }
 
-h3 {
+h3{
 	
 	font-family: assistant;
 	font-weight: lighter;
