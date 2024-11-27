@@ -409,3 +409,64 @@ main {
 		gap: 10px;
 	}
 }
+
+
+.box-one,.box-two,.box-three {
+    width:100%;
+    height:25em;
+    }
+
+
+
+    .box-two {
+    background:dodgerblue;
+    }
+
+
+
+    .box-one p,.box-two p,.box-three {
+        width:100%;
+        }
+
+.goalmember h3{
+        margin: 0px;
+        text-align: inline-flex;
+    }
+    .goalmember img{
+        width: 100%;
+        border-radius: 50%;
+    }
+
+    .goalmember{
+        color: #fff;
+        width: 20%;
+        background-color: #3363c2;
+        padding: 10px 11px;
+        margin: 20px auto;
+        border-radius: 20px;
+        min-width: 320px;
+        box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.3);
+        display: inline-flex;
+    }
+
+    .goalmember ul{
+        list-style-type: none;
+        margin:0px;
+        padding:0px;
+    }
+
+    .goalmember ul li{
+        margin:10px 0px;
+        padding:0px;
+    }
+
+    .goalLink a{
+        display: inline-flex;
+        width: 100%;
+        height: 100%;
+
+    }
+
+    .goalContainer{
+        display: inline;
+    }
