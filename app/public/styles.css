@@ -72,8 +72,13 @@ nav {
 	border-bottom: solid 3px #2a519d;
 }
 
+<<<<<<< Updated upstream
 #home{
 	background-image: linear-gradient(skyblue, white);
+=======
+#home {
+	background-image: linear-gradient(skyblue, white,skyblue);
+>>>>>>> Stashed changes
 }
 
 nav img {
@@ -307,7 +312,7 @@ h4 {
 
 
 body {
-	background: linear-gradient(to bottom, #add8e6, #ffffff); 
+	background: linear-gradient(to bottom, #add8e6, #ffffff, #add8e6); 
 	font-family: 'Assistant', sans-serif;
 	margin: 0;
 	padding: 0;
@@ -444,7 +449,7 @@ main {
 
 
     .box-two {
-    background:dodgerblue;
+    background: linear-gradient(to bottom, #5e8f92, #3a46e4);;
     }
 
 
@@ -492,6 +497,15 @@ main {
 
     }
 
+	.goalLink a:visited{
+        color:#fff;
+
+    }
+
     .goalContainer{
         display: inline;
     }
+
+	footer{
+		background: #d49774;
+	}
