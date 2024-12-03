@@ -122,15 +122,27 @@ nav ul li a {
 #goals-list nav{
 	background-color: #3363c2;
 	border-radius:15px;
-	display: block;
-	align-items: center;
-    flex-direction: column;
+	position: relative;
+	left: 30px;
+	width: 60%;
 }
 
 #goals-list nav li{
 	display: block;
 	align-items: center;
     flex-direction: column;
+}
+
+#drop-down{
+    display: none;
+}
+
+.showNav{
+	display: block;
+    float:right;
+    background-color: #7f869a;
+    padding: 2%;
+        opacity: 0.5;
 }
 
 nav ul li a:visited {
