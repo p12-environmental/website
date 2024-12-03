@@ -57,16 +57,8 @@ app.use(rateLimit({ windowMs: 15 * 60 * 1000, limit: 100, standardHeaders: "draf
 app.set("view engine", "ejs");
 
 app.get("*", (req, res) => {
-	const reqPath = req.path.slice(1);
+    const reqPath = req.path === "/" ? "index" : req.path.slice(1);
 	const viewPath = path.join(currentDir, "views", `${reqPath}.ejs`)
-
-	if (!reqPath || req.path == "index.html") {
-		return res.sendFile(path.join(currentDir, "public", "index.html"), (err) => {
-			if (err) {
-				console.error("Failed to serve index.html", err);
-			}
-		})
-	}
 
 	res.render(viewPath, (err, html) => {
 		if (err) {

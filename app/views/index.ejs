@@ -10,25 +10,7 @@
 	<script src="src/index.js" defer></script>
 </head>
 <body id="home">
-	<nav>
-		<ul>
-			<li><a class="active" href="/">Home</a></li>
-		</ul>
-		<ul class="nav-list">
-			<li id="goals-list"><a href="goals">Our Goals <i id="arrow" class="fa-solid fa-caret-down"></i></a>
-				<nav id="drop-down">
-					<ul>
-						<li>> Climate Action</li>
-						<li>> Sustainable Consumption and Production</li>
-						<li>> Biodiversity, Forests, and Desertification</li>
-					</ul>
-				</nav>
-			<li><hr class="circle"></li>
-			<li><a href="teams">The Team</a></li>
-			<li><hr class="circle"></li>
-			<li><a href="form">Newsletter</a></li>
-		</ul>
-	</nav>
+	<%- include("../partials/nav-header", { wrapped: true }); %>
 	<header>
 		<div>
 			<h2 id="top">SAVE <strong>YOUR</strong></h1>
