@@ -163,6 +163,8 @@ nav ul li a:hover {
 main {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
 }
 
 .member img {
@@ -334,11 +336,7 @@ nav {
 	box-shadow: none;
 }
 
-main {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
+
 
 #contact-us {
 	display: flex;
@@ -506,6 +504,29 @@ main {
         display: inline;
     }
 
-	footer{
-		background: #d49774;
-	}
+	
+	
+footer{
+	background: #c5e2ff;
+	border-top: solid 3px #2a519d;
+	display: inline-flex;
+	align-items: center;
+    justify-content: space-around;
+	clear: both;
+	position: relative;
+	height: 80px;
+
+}
+
+#footerBtn{
+	font-family: assistant;
+	font-weight: bold;
+	color: #EFF4F7;
+	background-color: #3363c2;
+	font-size: 15px;
+	border: solid 10px #3363c2 ;
+	border-radius: 50px;
+	cursor: pointer;
+	padding: 0 20px;
+}
+
