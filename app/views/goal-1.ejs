@@ -10,14 +10,12 @@
 	<title>Goal 1</title>
 </head>
 <body>
-	<div id="wrapper">
-		<%- include("../partials/nav-header"); %>
-		<header>
-			<h1><strong>Goal 1</strong></h1>
-		</header>
-		<main>
-			<!-- TODO: Main content -->
-		</main>
-	</div>
+	<%- include("../partials/nav-header", { wrapped: true }); %>
+	<header>
+		<h1><strong>Goal 1</strong></h1>
+	</header>
+	<main>
+		<!-- TODO: Main content -->
+	</main>
 	<%- include("../partials/footer"); %>
 </body>

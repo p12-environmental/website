@@ -67,7 +67,7 @@ nav {
 	align-items: flex-start;
 }
 
-#wrapper nav {
+nav.wrapped {
 	background-color: #c5e2ff;
 	border-bottom: solid 3px #2a519d;
 }
@@ -250,15 +250,11 @@ h2 {
 	line-height: 90%;
 }
 
-h3{
+h3 {
 	
 	font-family: assistant;
 	font-weight: lighter;
 	font-size: 1.5vw;
-}
-
-#wrapper h3{
-	text-align: center;
 }
 
 .member h3 {
