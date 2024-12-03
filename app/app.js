@@ -1,8 +1,9 @@
+"use strict";
 import express from "express";
 import Database from 'better-sqlite3';
 import swaggerUi from "swagger-ui-express";
 import { rateLimit } from "express-rate-limit";
-import { body } from "express-validator";
+import { body, validationResult } from "express-validator";
 import nodemailer from "nodemailer";
 import crypto from "crypto";
 import { fileURLToPath } from "url";
@@ -81,10 +82,15 @@ app.post("/mailing/subscribe",
 		.trim()
 		.isEmail(),
 	async (req, res) => {
+		const result = validationResult(req);
+		if (!result.isEmpty()) {
+			return res.status(400).json({ message: "Specified details were invalid", errors: result.array() });
+		}
+
 		const { email } = req.body;
 		const subscribedStmt = db.prepare("SELECT * FROM MailingList WHERE email = ?");
 		if (subscribedStmt.get(email) != null) {
-			res.status(400).json({ "message": "This email has already been subscribed to the mailing list" });
+			res.status(400).json({ message: "This email has already been subscribed to the mailing list" });
 			return res.end();
 		}
 
@@ -101,7 +107,7 @@ app.post("/mailing/subscribe",
 		});
 
 		console.log(info)
-		res.status(200).json({ "message": "Confirmation sent successfully, please check your inbox" })
+		res.status(200).json({ message: "Confirmation sent successfully, please check your inbox" })
 	}
 )
 
@@ -110,8 +116,14 @@ app.post("/mailing/unsubscribe",
 		.trim()
 		.isEmail(),
 	body("unsubscribeToken")
-		.isString(),
+		.isString()
+		.notEmpty(),
 	(req, res) => {
+		const result = validationResult(req);
+		if (!result.isEmpty()) {
+			return res.status(400).json({ message: "Specified details were invalid", errors: result.array() });
+		}
+
 		const { email, unsubscribeToken } = req.body;
 		const stmt = db.prepare("DELETE FROM MailingList WHERE email = ? AND unsubscribeToken = ?");
 		stmt.run(email, unsubscribeToken);
@@ -135,7 +147,8 @@ app.post("/mailing/unsubscribe",
 app.post("/contact",
 	body("firstName")
 		.trim()
-		.isString(),
+		.isString()
+		.notEmpty(),
 	body("lastName")
 		.optional()
 		.trim()
@@ -148,6 +161,11 @@ app.post("/contact",
 		.trim()
 		.isEmail(),
 	(req, res) => {
+		const result = validationResult(req);
+		if (!result.isEmpty()) {
+			return res.status(400).json({ message: "Specified details were invalid", errors: result.array() });
+		}
+
 		const { firstName, lastName, email, message } = req.body;
 		// TODO: Insert contact info into database
 	}
