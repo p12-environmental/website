@@ -27,7 +27,17 @@ pages, resources, and informational content designed to promote sustainability a
     - **GitHub Desktop:**
         1. Open GitHub Desktop.
         2. Go to File > Clone Repository and paste the URL for this repository.
-2. ### Making Changes:
+2. ### Test the website:
+    - **Command line:**
+        ```sh
+        # 1. Install npm dependencies
+        npm install
+        ```
+        ```sh
+        # 2. Run server
+        node app.js
+        ```
+3. ### Making Changes:
     Edit the necessary files in vscode and save all modified files.
     - **Command line:**
         ```bash
