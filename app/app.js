@@ -88,12 +88,6 @@ app.post("/mailing/subscribe",
 		.isEmail(),
 	async (req, res) => {
 		const { email } = req.body;
-		// Validate email, TODO: Use regexes or similar to check it is formatted correctly
-		if (!email || typeof email !== "string") {
-			// Status 400 bad request - Data supplied to server was invalid
-			res.status(400).json({ "message": "Specified email was invalid" });
-			return res.end();
-		}
 		const subscribedStmt = db.prepare("SELECT * FROM MailingList WHERE email = ?");
 		if (subscribedStmt.get(email) != null) {
 			res.status(400).json({ "message": "This email has already been subscribed to the mailing list" });
@@ -125,16 +119,6 @@ app.post("/mailing/unsubscribe",
 		.isString(),
 	(req, res) => {
 		const { email, unsubscribeToken } = req.body;
-		if (!email || typeof email !== "string") {
-			// Status 400 bad request - Data supplied to server was invalid
-			res.status(400).json({ "message": "Specified email was invalid" });
-			return res.end();
-		}
-		if (!unsubscribeToken || typeof unsubscribeToken !== "string") {
-			// Status 400 bad request - Data supplied to server was invalid
-			res.status(400).json({ "message": "Specified unsubscription token was invalid" });
-			return res.end();
-		}
 		const stmt = db.prepare("DELETE FROM MailingList WHERE email = ? AND unsubscribeToken = ?");
 		stmt.run(email, unsubscribeToken);
 
@@ -171,7 +155,7 @@ app.post("/contact",
 		.isEmail(),
 	(req, res) => {
 		const { firstName, lastName, email, message } = req.body;
-
+		// TODO: Insert contact info into database
 	}
 )
 
