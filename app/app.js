@@ -61,7 +61,7 @@ app.get("*", (req, res) => {
 	const viewPath = path.join(currentDir, "views", `${reqPath}.ejs`)
 
 	if (!reqPath || req.path == "index.html") {
-		return res.sendFile(path.join(currentDir, "public/index.html"), (err) => {
+		return res.sendFile(path.join(currentDir, "public", "index.html"), (err) => {
 			if (err) {
 				console.error("Failed to serve index.html", err);
 			}
@@ -70,11 +70,13 @@ app.get("*", (req, res) => {
 
 	res.render(viewPath, (err, html) => {
 		if (err) {
-			const notFoundPath = path.join(currentDir, "public", "404.html");
-			return res.status(404).sendFile(notFoundPath, (err) => {
+			const notFoundPath = path.join(currentDir, "views", "404.ejs");
+			return res.status(404).render(notFoundPath, (err, html) => {
 				if (err) {
-					console.error("Failed to serve 404.html", err);
+					console.error("Failed to serve 404.ejs", err);
 				}
+
+				res.send(html);
 			});
 		}
 
