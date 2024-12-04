@@ -3,18 +3,19 @@
 	<ul class="nav-list">
 		<li><a href="/">Home</a></li>
 		<li><hr class="circle"></li>
-		<li id="goals-list"><a href="goals">Our Goals <i id="arrow" class="fa-solid fa-caret-down"></i></a>
+		<li id="goals-list">
+			<a href="goals" class="<%= page == 'goals' ? 'active' : '' %>">Our Goals <i id="arrow" class="fa-solid fa-caret-down"></i></a>
 			<nav id="drop-down">
 				<ul>
-					<li>> Climate Action</li>
-					<li>> Sustainable Consumption and Production</li>
-					<li>> Biodiversity, Forests, and Desertification</li>
+					<li><a>Climate Action</a></li>
+					<li><a>Sustainable Consumption and Production</a></li>
+					<li><a>Biodiversity, Forests, and Desertification</a></li>
 				</ul>
 			</nav>
 		</li>
 		<li><hr class="circle"></li>
-		<li><a href="teams">The Team</a></li>
+		<li><a class="<%= page == 'team' ? 'active' : '' %>" href="team">The Team</a></li>
 		<li><hr class="circle"></li>
-		<li><a class="active" href="form">Newsletter</a></li>
+		<li><a class="<%= page == 'form' ? 'active' : '' %>" href="form">Newsletter</a></li>
 	</ul>
 </nav>

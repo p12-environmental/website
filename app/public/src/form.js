@@ -1,33 +1,31 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import path from 'path';
-import { fileURLToPath } from 'url';
+const signupForm = document.getElementById("signup-form");
 
-const app = express();
+signupForm.addEventListener("submit", async function(event) {
+	event.preventDefault();
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+	const { firstName, lastName, email, message } = signupForm.elements; 
+	const formData = {
+		firstName: firstName.value,
+		lastName: lastName.value,
+		email: email.value,
+		message: message.value
+	};
 
-app.use(bodyParser.urlencoded({ extended: true }));
+	const jsonData = JSON.stringify(formData);
+	try {
+		// TODO: Dynamically insert server URL
+		const response = await fetch("http://localhost:8080", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: jsonData
+		});
 
-
-app.use(express.static(path.join(__dirname, '../public')));
-
-
-app.get('/form', (req, res) => {
-	res.sendFile(path.join(__dirname, '../public/form.html'));
-});
-
-app.post('/submit', (req, res) => {
-	const { firstName, lastName, email, comments } = req.body;
-	console.log('Form Submitted:', req.body);
-
-	
-	res.redirect('/success.html');
-});
-
-
-const PORT = 3000;
-app.listen(PORT, () => {
-	console.log(`Server running at http://localhost:${PORT}`);
+		const data = await response.json();
+		console.log("Form submitted successfully:", data);
+	}
+	catch (error) {
+		console.error("Error submitting form:", error);
+	}
 });

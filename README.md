@@ -14,7 +14,7 @@ pages, resources, and informational content designed to promote sustainability a
 | [goal-1.html](./app/public/goal-1.html) | HTML | Ben              |
 | [goal-2.html](./app/public/goal-2.html) | HTML | Ben              |
 | [goal-3.html](./app/public/goal-3.html) | HTML | Ben              |
-| [teams.html](./app/public/teams.html)   | HTML | Lewis            |
+| [team.html](./app/public/team.html)     | HTML | Lewis            |
 | [form.html](./app/public/form.html)     | HTML | Sidra            |
 
 ## Development Guide:
