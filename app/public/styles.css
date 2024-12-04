@@ -529,7 +529,7 @@ button {
 	padding: 0 20px;
 }
 
-#textfield {
+#footerEmail {
 	font-family: assistant;
 	background-color: white;
 	border-radius: 50px;
@@ -537,7 +537,7 @@ button {
 	width: 30vw;
 }
 
-#subBtn {
+#footerSubBtn {
 	font-family: assistant;
 	font-weight: bold;
 	background-color: black;
