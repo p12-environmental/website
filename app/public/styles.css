@@ -25,8 +25,6 @@ html {
 	src: url(assets/assistant-medium.ttf);
 }
 
-
-
 body {
 	font-family: sans-serif, Arial;
 	color: #3363c2;
@@ -121,8 +119,7 @@ nav ul li a {
 	font-size: 15px;
 }
 
-
-#goals-list nav {
+#goalsList nav {
 	background-color: #3363c2;
 	border-radius: 15px;
 	position: relative;
@@ -130,13 +127,13 @@ nav ul li a {
 	width: 60%;
 }
 
-#goals-list nav li {
+#goalsList nav li {
 	display: block;
 	align-items: center;
 	flex-direction: column;
 }
 
-#drop-down {
+#dropDown {
 	display: none;
 }
 
@@ -275,7 +272,6 @@ h4 {
 	font-size: 23px;
 }
 
-
 #home div {
 	padding-left: 50px;
 	width: auto;
@@ -306,7 +302,7 @@ h4 {
 
 /*=================*/
 
-#form-container h2 {
+#formContainer h2 {
 	font-family: 'Assistant', sans-serif;
 	font-size: 24px;
 	font-weight: bold;
@@ -341,7 +337,7 @@ nav {
 
 
 
-#contact-us {
+#contactUs {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -350,7 +346,7 @@ nav {
 	text-align: center;
 }
 
-#info-text h2 {
+#infoText h2 {
 	font-family: 'Assistant', sans-serif;
 	font-size: 28px;
 	font-weight: bold;
@@ -358,7 +354,7 @@ nav {
 	margin-bottom: 10px;
 }
 
-#info-text p {
+#infoText p {
 	font-family: 'Assistant', sans-serif;
 	font-size: 16px;
 	color: #3363c2;
@@ -367,7 +363,7 @@ nav {
 }
 
 
-#form-container {
+#formContainer {
 	background-color: #ffffff;
 	border-radius: 10px;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -381,14 +377,14 @@ nav {
 	padding: 0px;
 }
 
-#signup-form {
+#signupForm {
 	display: flex;
 	flex-direction: column;
 	gap: 15px;
 }
 
 
-#signup-form label {
+#signupForm label {
 	font-family: 'Assistant', sans-serif;
 	font-size: 14px;
 	font-weight: bold;
@@ -398,9 +394,9 @@ nav {
 }
 
 
-#signup-form input[type="text"],
-#signup-form input[type="email"],
-#signup-form textarea {
+#signupForm input[type="text"],
+#signupForm input[type="email"],
+#signupForm textarea {
 	width: 100%;
 	padding: 10px;
 	border: 1px solid #ccc;
@@ -409,13 +405,13 @@ nav {
 	box-sizing: border-box;
 }
 
-#signup-form textarea {
+#signupForm textarea {
 	resize: none;
 	height: 80px;
 }
 
 
-#signup-form button {
+#signupForm button {
 	padding: 10px 20px;
 	border: none;
 	border-radius: 5px;
@@ -427,17 +423,17 @@ nav {
 	align-self: flex-start;
 }
 
-#signup-form button:hover {
+#signupForm button:hover {
 	background-color: #2554a7;
 }
 
 
 @media screen and (max-width: 600px) {
-	#form-container {
+	#formContainer {
 		padding: 20px;
 	}
 
-	#signup-form {
+	#signupForm {
 		gap: 10px;
 	}
 }

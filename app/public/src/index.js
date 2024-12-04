@@ -1,5 +1,5 @@
-let goals = document.querySelector('#goals-list');
+let goals = document.querySelector('#goalsList');
 
 goals.addEventListener("mouseover", () => {
-	document.querySelector("#drop-down").classList.toggle("nav-visible");
+	document.querySelector("#dropDown").classList.toggle("nav-visible");
 });
