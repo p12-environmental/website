@@ -535,6 +535,7 @@ button {
 	border-radius: 50px;
 	padding: 10px;
 	width: 30vw;
+	border: 2px solid gray;
 }
 
 #footerSubBtn {
