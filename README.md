@@ -27,7 +27,7 @@ pages, resources, and informational content designed to promote sustainability a
     - **GitHub Desktop:**
         1. Open GitHub Desktop.
         2. Go to File > Clone Repository and paste the URL for this repository.
-2. ### Test the website:
+2. ### Testing the website:
     - **Command line:**
         ```sh
         # 1. Install npm dependencies
@@ -57,9 +57,6 @@ pages, resources, and informational content designed to promote sustainability a
         2. Write a commit message summarizing changes.
         3. Click Commit to main, make sure to select including any newly created files.
         4. After committing, click Push origin to upload your changes to GitHub.
-
-The website can be tested while in development with the nodeJS npm live-server CLI tool (`npx live-server`),
-or by making use of the [vscode live-server extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer).
 
 ## Licensing
 All rights to the content, design, and code of this project are reserved to the group members listed above. Any unauthorized reproduction, distribution, or modification is strictly prohibited unless explicitly approved by the authors.
