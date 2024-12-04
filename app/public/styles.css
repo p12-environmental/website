@@ -352,6 +352,7 @@ nav {
 	font-weight: bold;
 	color: #3363c2;
 	margin-bottom: 10px;
+	text-align: center;
 }
 
 #infoText p {
@@ -441,23 +442,46 @@ nav {
 .box-one, .box-two, .box-three {
 	width: 100%;
 	height: 25em;
+	margin: 50px;
+	display: flex;
+	align-items: center;
+    flex-direction: row;
+	justify-content: space-around;
 }
+
+.box-one img{
+	width: 30vw;
+}
+
+.box-three img{
+	width: 20vw;
+}
+
+.box-one div{
+	display: flex;
+	flex-direction: column;
+}
+
 
 .box-two {
 	background: linear-gradient(to bottom, #5e8f92, #3a46e4);
+	margin-left: 0px;
+	margin-right: 0px;
 }
 
 .box-one p, .box-two p, .box-three p {
-	width: 100%;
+	max-width: 50vw;
+	font-size: 
 }
+
+
 
 .goalmember h3 {
 	margin: 0px;
-	text-align: inline-flex;
 }
 
 .goalmember img {
-	width: 100%;
+	width: 30%;
 	border-radius: 50%;
 }
 
@@ -468,9 +492,8 @@ nav {
 	padding: 10px 11px;
 	margin: 20px auto;
 	border-radius: 20px;
-	min-width: 320px;
+	min-width: 80%;
 	box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.3);
-	display: inline-flex;
 }
 
 .goalmember ul {
@@ -484,21 +507,10 @@ nav {
 	padding: 0px;
 }
 
-.goalLink a {
-	display: inline-flex;
-	width: 100%;
-	height: 100%;
-
+.goalLink{
+	text-decoration: none;
 }
 
-.goalLink a:visited {
-	color: #fff;
-
-}
-
-.goalContainer {
-	display: inline;
-}
 
 footer {
 	background: #c5e2ff;
