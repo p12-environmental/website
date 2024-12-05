@@ -493,6 +493,11 @@ nav {
 	border-radius: 20px;
 	min-width: 80%;
 	box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.3);
+	
+}
+
+.goalmember figure{
+	justify-self: center;	
 }
 
 .goalmember ul {
@@ -567,8 +572,4 @@ button {
 	min-height: 300px;
 	display: flex;
 	align-items: center;
-}
-
-.goalTitle div{
-	
 }
