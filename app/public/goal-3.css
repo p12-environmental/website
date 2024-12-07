@@ -6,36 +6,36 @@ body {
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
-  }
-  
-  
-  
-  .header {
+}
+
+.header {
 	text-align: center;
 	background: url('/assets/forestg3.jpg') no-repeat center center;
 	background-size: cover;
 	color: white;
 	padding: 50px 20px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
-  }
-  
-  .header h1 {
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+	margin-top: 0;
+}
+
+.header h1 {
 	font-size: 2.5rem;
 	margin-bottom: 10px;
-  }
-  
-  .header p {
+}
+
+.header p {
 	font-size: 1.2rem;
 	max-width: 700px;
 	margin: 0 auto;
-  }
-  .dropdown {
+}
+
+.dropdown {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
-  }
-  
-  .dropdown-btn {
+}
+
+.dropdown-btn {
 	background: rgba(127, 189, 240, 0.9);
 	color: white;
 	border: none;
@@ -48,10 +48,15 @@ body {
 	justify-content: space-between;
 	align-items: center;
 	max-width: 400px;
-  width: 200%;
-  }
-  
-  .dropdown-btn:hover {
+	width: 200%;
+}
+
+.dropdown-btn:hover {
 	background: rgba(0, 123, 255, 1);
-  }
-  
+}
+
+.content {
+	justify-content: start;
+	align-items: start;
+	padding: 32px;
+}

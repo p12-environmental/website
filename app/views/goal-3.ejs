@@ -1,39 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Goal 3: Biodiversity, Forests, and Desertification</title>
-  <link rel="stylesheet" href="goal-3.css">
- 
-
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Goal 3: Biodiversity, Forests, and Desertification</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.css">
+	<link rel="stylesheet" href="goal-3.css">
+	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="header">
-    <h1>Biodiversity, Forests, and Desertification</h1>
-    <p>Protect life on land by promoting sustainable forest management, halting biodiversity loss, and combating desertification.</p>
-  </div>
-
-  <div class="content">
-    <div class="related-topics">
-      <h2>Related Topics:</h2>
-      <div class="dropdown">
-        <button class="dropdown-btn">Chemicals and waste &#x25BC;</button>
-        <button class="dropdown-btn">Sustainable forest management &#x25BC;</button>
-        <button class="dropdown-btn">Wildlife protection &#x25BC;</button>
-      </div>
-    </div>
-
-    <div class="overview">
-      <h2>Overview:</h2>
-      <p>This goal focuses on preserving biodiversity, sustainable forest management, and reversing land degradation caused by desertification. Protecting ecosystems is essential for mitigating climate change and ensuring the survival of countless species.</p>
-    </div>
-
-    <div class="infographics">
-     
-    
-    </div>
-  </div>
+	<%- include("../partials/nav-header", { wrapped: true, page: "goal-3" }); %>
+	<header class="header">
+		<h1>Biodiversity, Forests, and Desertification</h1>
+		<p>
+			Protect life on land by promoting sustainable forest management, halting biodiversity loss, and combating
+			desertification.
+		</p>
+	</header>
+	<main class="content">
+		<div class="related-topics">
+			<h3>Related Topics:</h3>
+			<div class="dropdown">
+				<details class="dropdown-btn">
+					<summary>Chemicals and waste</summary>
+					...
+				</details>
+				<details class="dropdown-btn">
+					<summary>Sustainable forest management</summary>
+					...
+				</details>
+				<details class="dropdown-btn">
+					<summary>Wildlife protection</summary>
+					...
+				</details>
+			</div>
+		</div>
+		<div class="overview">
+			<h3>Overview:</h3>
+			<p>
+				This goal focuses on preserving biodiversity, sustainable forest management, and reversing land
+				degradation caused by desertification. Protecting ecosystems is essential for mitigating climate change
+				and ensuring the survival of countless species.
+			</p>
+		</div>
+		<div class="infographics">
+		</div>
+	</main>
+	<%- include("../partials/footer"); %>
 </body>
 </html>
-
