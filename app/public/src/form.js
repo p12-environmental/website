@@ -14,7 +14,7 @@ signupForm.addEventListener("submit", async function(event) {
 	const jsonData = JSON.stringify(formData);
 	try {
 		// TODO: Dynamically insert server URL
-		const response = await fetch("http://localhost:8080", {
+		const response = await fetch("http://localhost:8080/contact", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"

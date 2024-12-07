@@ -470,6 +470,7 @@ nav {
 
 .box-two {
 	background: linear-gradient(to bottom, #5e8f92, #3a46e4);
+	background-attachment: fixed;
 	margin-left: 0px;
 	margin-right: 0px;
 }
@@ -478,18 +479,16 @@ nav {
 	max-width: 50vw;
 }
 
-
-
-.goalmember h3 {
+.goal-member h3 {
 	margin: 0px;
 }
 
-.goalmember img {
+.goal-member img {
 	width: 30%;
 	border-radius: 50%;
 }
 
-.goalmember {
+.goal-member {
 	color: #fff;
 	width: 20%;
 	background-color: #3363c2;
@@ -501,22 +500,22 @@ nav {
 	
 }
 
-.goalmember figure{
+.goal-member figure {
 	justify-self: center;	
 }
 
-.goalmember ul {
+.goal-member ul {
 	list-style-type: none;
 	margin: 0px;
 	padding: 0px;
 }
 
-.goalmember ul li {
+.goal-member ul li {
 	margin: 10px 0px;
 	padding: 0px;
 }
 
-.goalLink{
+.goal-link{
 	text-decoration: none;
 }
 
@@ -567,14 +566,4 @@ button {
 	color: white;
 	position: relative;
 	right: 90px;
-}
-
-
-.goalTitle{
-	background: url(assets/goal1-title.png) no-repeat center;
-	background-size: cover;
-	background-position-y: -80px;
-	min-height: 300px;
-	display: flex;
-	align-items: center;
 }
