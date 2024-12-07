@@ -41,6 +41,15 @@ const createMailingList =
 		PRIMARY KEY (email)
 	);`;
 db.exec(createMailingList);
+const createContactMessages =
+	`CREATE TABLE IF NOT EXISTS ContactMessages(
+		id INTEGER NOT NULL PRIMARY KEY,
+		firstName TEXT NOT NULL,
+		lastName TEXT,
+		email TEXT NOT NULL,
+		message TEXT NOT NULL
+	);`;
+db.exec(createContactMessages);
 const transporter = nodemailer.createTransport(config.email);
 
 const currentFile = fileURLToPath(import.meta.url);
@@ -143,7 +152,6 @@ app.post("/mailing/unsubscribe",
 	}
 )
 
-
 app.post("/contact",
 	body("firstName")
 		.trim()
@@ -167,7 +175,8 @@ app.post("/contact",
 		}
 
 		const { firstName, lastName, email, message } = req.body;
-		// TODO: Insert contact info into database
+		const stmt = db.prepare("INSERT INTO ContactMessages (firstName, lastName, email, message) VALUES (?, ?, ?, ?)");
+		stmt.run(firstName, lastName, email, message);
 	}
 )
 

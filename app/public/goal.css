@@ -49,8 +49,8 @@ body {
 	gap: 10px;
 }
 
-.dropdown-btn {
-	background: rgba(127, 189, 240, 0.9);
+.dropdown-details {
+	background-color: rgba(127, 189, 240, 0.9);
 	color: white;
 	border: none;
 	padding: 5px 15px;
@@ -63,10 +63,17 @@ body {
 	align-items: center;
 	max-width: 400px;
 	width: 200%;
+	max-height: 36px;
+	transition: .2s border-radius, .2s max-height, .2s background-color;
 }
 
-.dropdown-btn:hover {
-	background: rgba(0, 123, 255, 1);
+.dropdown-details[open] {
+	border-radius: 4px;
+	max-height: 256px;
+}
+
+.dropdown-details:hover {
+	background-color: rgba(0, 123, 255, 1);
 }
 
 .content {
