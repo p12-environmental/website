@@ -10,12 +10,26 @@ body {
 
 .header {
 	text-align: center;
-	background: url('/assets/forestg3.jpg') no-repeat center center;
-	background-size: cover;
 	color: white;
+	background-repeat: no-repeat;
+	background-size: cover;
 	padding: 50px 20px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 	margin-top: 0;
+}
+
+.header.goal-1 {
+	background-image: url("assets/goal-1-title.png");
+	background-position: center -80px;
+	background-size: cover;
+	min-height: 300px;
+	display: flex;
+	align-items: center;
+}
+
+.header.goal-3 {
+	background-image: url("assets/goal-3-title.png");
+	background-position: center center;
 }
 
 .header h1 {

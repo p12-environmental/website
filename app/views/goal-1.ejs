@@ -6,21 +6,22 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.css">
 	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="goal.css">
 	<script src="src/goal-1.js" defer></script>
 	<title>Goal 1</title>
 </head>
 <body>
 	<%- include("../partials/nav-header", { wrapped: true, page: "goal-1" }); %>
-	<div class="goal-title">
+	<header class="header goal-1">
 		<div>
 			<h1><strong>Climate Action</strong></h1>
 			<p>Take urgent action to combat climate change and its impacts
 
 			</p>
 		</div>
-	</div>
-	<img src="assets/goals.png" alt="profile image">
-	<main>
+	</header>
+	<main class="content">
+		<img src="assets/goals.png" alt="profile image">
 		<!-- TODO: Main content -->
 	</main>
 	<%- include("../partials/footer"); %>

@@ -561,13 +561,3 @@ button {
 	position: relative;
 	right: 90px;
 }
-
-
-.goal-title {
-	background: url(assets/goal1-title.png) no-repeat center;
-	background-size: cover;
-	background-position-y: -80px;
-	min-height: 300px;
-	display: flex;
-	align-items: center;
-}
