@@ -175,7 +175,7 @@ main {
 	color: #fff;
 	width: 20%;
 	background-color: #3363c2;
-	padding: 10px 11px;
+	padding: 11px;
 	margin: 20px auto;
 	border-radius: 20px;
 	min-width: 320px;
@@ -290,7 +290,6 @@ h4 {
 }
 
 
-
 /*=================*/
 
 #formContainer h2 {
@@ -376,15 +375,6 @@ nav {
 }
 
 
-#signupForm label {
-	font-family: 'Assistant', sans-serif;
-	font-size: 14px;
-	font-weight: bold;
-	color: #3363c2;
-	margin-bottom: 5px;
-	text-align: left;
-}
-
 
 #signupForm input[type="text"],
 #signupForm input[type="email"],
@@ -425,7 +415,6 @@ nav {
 	margin: 50px;
 	display: flex;
 	align-items: center;
-    flex-direction: row;
 	justify-content: space-around;
 }
 
@@ -436,12 +425,6 @@ nav {
 .box-three img{
 	width: 20vw;
 }
-
-.box-one div{
-	display: flex;
-	flex-direction: column;
-}
-
 
 .box-two {
 	background: linear-gradient(to bottom, #5e8f92, #3a46e4);
@@ -454,45 +437,20 @@ nav {
 	max-width: 50vw;
 }
 
-.goal-member h3 {
-	margin: 0px;
-}
-
-.goal-member img {
-	width: 30%;
-	border-radius: 50%;
-}
-
-.goal-member {
-	color: #fff;
-	width: 20%;
-	background-color: #3363c2;
-	padding: 10px 11px;
-	margin: 20px auto;
-	border-radius: 20px;
-	min-width: 80%;
-	box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.3);
-	
-}
-
-.goal-member figure {
-	justify-self: center;	
-}
-
-.goal-member ul {
-	list-style-type: none;
-	margin: 0px;
-	padding: 0px;
-}
-
-.goal-member ul li {
-	margin: 10px 0px;
-	padding: 0px;
-}
 
 .goal-link{
 	text-decoration: none;
 }
+
+.goal-link img{
+	width: 30%;
+	border-radius: 50%;
+}
+
+.goal-link article{
+	min-width: 80%;
+}
+
 
 
 footer {
