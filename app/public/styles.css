@@ -29,7 +29,6 @@ body {
 	font-family: sans-serif, Arial;
 	color: #3363c2;
 	background-color: #EFF4F7;
-	font-size: 16px;
 	line-height: 1.5;
 }
 
@@ -164,8 +163,6 @@ main {
 	display: flex;
 	flex-wrap: wrap;
 	flex-grow: 1;
-	justify-content: center;
-	align-items: center;
 }
 
 .member img {
@@ -242,7 +239,7 @@ header {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	margin-top: 30px;
+	margin: 30px;
 }
 
 h2 {
@@ -254,15 +251,13 @@ h2 {
 }
 
 h3 {
-
 	font-family: assistant;
 	font-weight: lighter;
-	font-size: 1.5vw;
+	text-align: center;
 }
 
 .member h3 {
 	margin: 0px;
-	text-align: center;
 }
 
 h4 {
@@ -273,17 +268,13 @@ h4 {
 }
 
 #home div {
-	padding-left: 50px;
-	width: auto;
+	margin: 20px;
 }
 
-#bottom {
-	font-size: 10vw;
+#home h3{
+	text-align: left;
 }
 
-#top {
-	font-size: 8vw;
-}
 
 #homeBtn {
 	font-family: assistant;
@@ -298,7 +289,21 @@ h4 {
 }
 
 
-@media only screen and (max-width:786px) {}
+@media only screen and (max-width:786px) {
+
+	#home header img{
+		display: none;
+	}
+	#home header{
+		padding-bottom: 80px;
+	}
+	h3{
+		font-size: 4vw;
+	}
+	h2{
+		font-size: 20vw
+	}
+}
 
 /*=================*/
 
