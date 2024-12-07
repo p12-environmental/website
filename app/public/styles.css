@@ -465,6 +465,7 @@ nav {
 
 .box-two {
 	background: linear-gradient(to bottom, #5e8f92, #3a46e4);
+	background-attachment: fixed;
 	margin-left: 0px;
 	margin-right: 0px;
 }
