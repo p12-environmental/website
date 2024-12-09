@@ -110,7 +110,6 @@ nav ul {
 
 nav ul li {
 	display: inline-flex;
-	flex-direction: column;
 	align-items: flex-end;
 }
 
@@ -128,12 +127,12 @@ nav ul li a {
 #dropDown {
 	background-color: white;
 	border: solid 3px #2a519d;
-	border-radius: 15px;
-	position: relative;
-	left: 0;
-	top: 56px;
-	width: 256px;
-	display: none;
+    border-radius: 15px;
+    position: relative;
+    left: 0;
+    top: 55px;
+    width: 256px;
+    display: none;
 }
 
 #dropDown ul {
@@ -335,6 +334,11 @@ h4 {
 	border-radius: 50px;
 	cursor: pointer;
 	padding: 0 20px;
+	transition: all 0.2s ease-in-out;
+}
+
+#homeBtn:hover{
+	transform: scale(1.1);
 }
 
 
@@ -663,6 +667,8 @@ button {
 	transition: .2s opacity;
 }
 
+
+
 @media only screen and (max-width:786px) {
 	.nav-header {
 		position: sticky;
@@ -703,6 +709,10 @@ button {
 	nav ul li a {
 		width: 100%;
 		margin: 0;
+	}
+
+	nav ul li{
+		flex-direction: column;
 	}
 
 	.active {
@@ -749,6 +759,10 @@ button {
 		display: none;
 	}
 
+	#home div{
+		margin: 0px;
+	}
+
 	h3 {
 		font-size: 4vw;
 	}
@@ -770,9 +784,8 @@ button {
 	}
 
 	.box-one p,
-	.box-two p,
 	.box-three p {
-		max-width: none;
+		max-width: 70%;
 	}
 
 
@@ -788,6 +801,7 @@ button {
 		flex-direction: column;
 		padding: 8px;
 		row-gap: 8px;
+		min-height: 140px;
 	}
 
 	#footerEmail {
