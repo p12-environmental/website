@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.css">
+	<link rel="stylesheet" href="styles.css">
+	<script src="src/unsubscribe.js" defer></script>
+	<script src="src/app.js" defer></script>
+	<title>Unsubscribed</title>
+</head>
+<body>
+	<%- include("../partials/nav-header", { wrapped: true, page: "success" }); %>
+	<header>
+		<h1 id="header">Unsubscribing from mailing list...</h1>
+	</header>
+	<main>
+		<h3 id="description"></h3>
+		<a href="/">Home</a>
+	</main>
+	<%- include("../partials/footer"); %>
+</body>
+</html>

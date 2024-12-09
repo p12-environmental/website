@@ -11,12 +11,16 @@
 	<title>Home</title>
 </head>
 <body id="home">
-	<nav>
+	<nav class="nav-header">
 		<ul>
 			<li><a class="active" href="/">Home</a></li>
 		</ul>
 		<ul class="nav-list" id="navList">
-			<li id="goalsList"><a href="goals">Our Goals <i id="arrow" class="fa-solid fa-caret-down"></i></a>
+			<li id="goalsList">
+				<a href="goals">Our Goals</a>
+				<button type="button" id="goalsDropBtn">
+					<i class="fa-solid fa-caret-down"></i>
+				</button>
 				<nav id="dropDown">
 					<ul>
 						<li>> Climate Action</li>

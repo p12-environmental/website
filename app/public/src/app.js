@@ -4,7 +4,12 @@ const dropDown = document.getElementById("dropDown");
 const navList = document.getElementById("navList");
 const hamburger = document.getElementById("hamburger");
 const hamburgerIcon = document.getElementById("hamburgerIcon");
+const goalsDropBtn = document.getElementById("goalsDropBtn");
 const nav = document.querySelector("nav");
+
+goalsDropBtn.addEventListener("click", function(e) {
+	dropDown.classList.toggle("open");
+});
 
 nav.addEventListener("click", function(e) {
 	if (e.target === nav) {
@@ -32,10 +37,6 @@ function openNav() {
 	hamburgerIcon.classList.replace("fa-bars", "fa-xmark");
 }
 
-goalList.addEventListener("mouseover", function() {
-	dropDown.classList.toggle("open");
-});
-
 newsletterForm.addEventListener("submit", async function(e) {
 	e.preventDefault();
 
@@ -45,7 +46,7 @@ newsletterForm.addEventListener("submit", async function(e) {
 	};
 
 	try {
-		const res = await fetch("/mailing/subscribe", {
+		const res = await fetch("/api/mailing/subscribe", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
