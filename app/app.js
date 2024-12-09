@@ -1,6 +1,7 @@
 "use strict";
 import express from "express";
-import Database from 'better-sqlite3';
+import sqlite3 from "sqlite3";
+import { open } from "sqlite";
 import swaggerUi from "swagger-ui-express";
 import { rateLimit } from "express-rate-limit";
 import { body, query, validationResult } from "express-validator";
@@ -32,8 +33,10 @@ if (!fs.existsSync(configPath)) {
 const config = JSON.parse(fs.readFileSync(configPath).toString());
 const app = express();
 const swaggerDocument = JSON.parse(fs.readFileSync("swagger.json").toString());
-const db = new Database("server.db");
-db.pragma("journal_mode = WAL");
+const db = await open({
+	filename: "server.db",
+	driver: sqlite3.Database
+});
 const createMailingList =
 	`CREATE TABLE IF NOT EXISTS MailingList(
 		email TEXT NOT NULL,
@@ -41,7 +44,7 @@ const createMailingList =
 		unsubscribeToken TEXT UNIQUE,
 		PRIMARY KEY (email)
 	);`;
-db.exec(createMailingList);
+await db.exec(createMailingList);
 const createContactMessages =
 	`CREATE TABLE IF NOT EXISTS ContactMessages(
 		id INTEGER NOT NULL PRIMARY KEY,
@@ -50,7 +53,7 @@ const createContactMessages =
 		email TEXT NOT NULL,
 		message TEXT NOT NULL
 	);`;
-db.exec(createContactMessages);
+await db.exec(createContactMessages);
 const transporter = nodemailer.createTransport(config.email);
 
 const currentFile = fileURLToPath(import.meta.url);
@@ -98,16 +101,23 @@ app.post("/api/mailing/subscribe",
 		}
 
 		const { email } = req.body;
-		const subscribedStmt = db.prepare("SELECT * FROM MailingList WHERE email = ?");
-		if (subscribedStmt.get(email) != null) {
+		const subscribedStmt = await db.prepare("SELECT * FROM MailingList WHERE email = @email");
+		const subscribedResult = await subscribedStmt.get({
+			"@email": email
+		});
+		if (subscribedResult) {
 			res.status(400).json({ message: "This email has already been subscribed to the mailing list" });
 			return res.end();
 		}
 
 		const date = Date.now();
 		const unsubscribeToken = crypto.randomBytes(64).toString("hex");
-		const stmt = db.prepare("INSERT INTO MailingList (email, date, unsubscribeToken) VALUES (?, ?, ?)");
-		stmt.run(email, date, unsubscribeToken);
+		const stmt = await db.prepare("INSERT INTO MailingList (email, date, unsubscribeToken) VALUES (@email, @date, @unsubscribeToken)");
+		await stmt.run({
+			"@email": email,
+			"@date": date,
+			"@unsubscribeToken": unsubscribeToken
+		});
 
 		const params = new URLSearchParams();
 		params.set("email", email);
@@ -144,17 +154,20 @@ app.post("/api/mailing/unsubscribe",
 	body("unsubscribeToken")
 		.isString()
 		.notEmpty(),
-	(req, res) => {
+	async (req, res) => {
 		const result = validationResult(req);
 		if (!result.isEmpty()) {
 			return res.status(400).json({ message: "Invalid input", errors: result.array() });
 		}
 
 		const { email, unsubscribeToken } = req.body;
-		const stmt = db.prepare("DELETE FROM MailingList WHERE email = ? AND unsubscribeToken = ?");
-		const changes = stmt.run(email, unsubscribeToken).changes;
+		const stmt = await db.prepare("DELETE FROM MailingList WHERE email = @email AND unsubscribeToken = @unsubscribeToken");
+		const deleteResult = await stmt.run({
+			"@email": email,
+			"@unsubscribeToken": unsubscribeToken
+		});
 
-		if (changes === 0) {
+		if (deleteResult.changes === 0) {
 			return res.status(404).json({ message: "Subscription not found or already unsubscribed" });
 		}
 
@@ -178,15 +191,20 @@ app.post("/api/contact",
 	body("email")
 		.trim()
 		.isEmail(),
-	(req, res) => {
+	async (req, res) => {
 		const result = validationResult(req);
 		if (!result.isEmpty()) {
 			return res.status(400).json({ message: "Specified details were invalid", errors: result.array() });
 		}
 
 		const { firstName, lastName, email, message } = req.body;
-		const stmt = db.prepare("INSERT INTO ContactMessages (firstName, lastName, email, message) VALUES (?, ?, ?, ?)");
-		stmt.run(firstName, lastName, email, message);
+		const stmt = await db.prepare("INSERT INTO ContactMessages (firstName, lastName, email, message) VALUES (@firstName, @lastName, @email, @message)");
+		await stmt.run({
+			"@firstName": firstName,
+			"@lastName": lastName,
+			"@email": email,
+			"@message": message
+		});
 	}
 );
 
