@@ -64,4 +64,5 @@ newsletterForm.addEventListener("submit", async function(e) {
 	catch (error) {
 		console.error("Failed to submit form:", error)
 	}
+	newsletterForm.reset();
 });
