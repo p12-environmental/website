@@ -711,6 +711,10 @@ button {
 		margin: 0;
 	}
 
+	nav ul li{
+		flex-direction: column;
+	}
+
 	.active {
 		border-bottom: none;
 		border-left: solid 4px #3363c2;
