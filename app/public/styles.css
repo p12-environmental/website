@@ -483,6 +483,9 @@ button {
 	border-radius: 50px;
 }
 
+#newsletterForm {
+	display: flex;
+}
 
 #footerBtn {
 	font-family: assistant;
@@ -512,11 +515,8 @@ button {
 	border-color: black;
 	color: white;
 	position: relative;
-	right: 90px;
+	margin-left: -90px;
 }
-
-
-
 
 .goal-header {
 	text-align: center;
@@ -623,9 +623,10 @@ button {
 		right: 0px;
 		display: flex;
 		flex-direction: column;
-		width: min(360px, 60%);
+		width: min(360px, 80%);
 		background: white;
 		margin: 0;
+		padding-top: 96px;
 		top: 0;
 		border-left: 1px solid blue;
 		height: 100%;
@@ -661,7 +662,7 @@ button {
 		display: block;
 		background-color: transparent;
 		border: none;
-		font-size: 24px;
+		font-size: 32px;
 		align-self: center;
 		margin: 8px;
 		color: #3363c2;
@@ -706,5 +707,15 @@ button {
 
 	#contactForm {
 		gap: 10px;
+	}
+
+	footer {
+		flex-direction: column;
+		padding: 8px;	
+		row-gap: 8px;
+	}
+
+	#footerEmail {
+		width: auto;
 	}
 }

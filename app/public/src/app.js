@@ -3,9 +3,17 @@ const goalList = document.getElementById("goalList");
 const dropDown = document.getElementById("dropDown");
 const navList = document.getElementById("navList");
 const hamburger = document.getElementById("hamburger");
+const hamburgerIcon = document.getElementById("hamburgerIcon");
 
 hamburger.addEventListener("click", function() {
-	navList.classList.toggle("open");
+	if (navList.classList.contains("open")) {
+		navList.classList.remove("open");
+		hamburgerIcon.classList.replace("fa-xmark", "fa-bars");
+	}
+	else {
+		navList.classList.add("open");
+		hamburgerIcon.classList.replace("fa-bars", "fa-xmark");
+	}
 });
 
 goalList.addEventListener("mouseover", function() {
