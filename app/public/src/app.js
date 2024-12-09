@@ -4,17 +4,33 @@ const dropDown = document.getElementById("dropDown");
 const navList = document.getElementById("navList");
 const hamburger = document.getElementById("hamburger");
 const hamburgerIcon = document.getElementById("hamburgerIcon");
+const nav = document.querySelector("nav");
 
-hamburger.addEventListener("click", function() {
-	if (navList.classList.contains("open")) {
-		navList.classList.remove("open");
-		hamburgerIcon.classList.replace("fa-xmark", "fa-bars");
-	}
-	else {
-		navList.classList.add("open");
-		hamburgerIcon.classList.replace("fa-bars", "fa-xmark");
+nav.addEventListener("click", function(e) {
+	if (e.target === nav) {
+		closeNav();
 	}
 });
+
+hamburger.addEventListener("click", function(e) {
+	e.stopPropagation();
+	if (navList.classList.contains("open")) {
+		closeNav();
+	}
+	else {
+		openNav();
+	}
+});
+
+function closeNav() {
+	navList.classList.remove("open");
+	hamburgerIcon.classList.replace("fa-xmark", "fa-bars");
+}
+
+function openNav() {
+	navList.classList.add("open");
+	hamburgerIcon.classList.replace("fa-bars", "fa-xmark");
+}
 
 goalList.addEventListener("mouseover", function() {
 	dropDown.classList.toggle("open");
