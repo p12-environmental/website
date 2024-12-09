@@ -69,7 +69,7 @@ app.set("view engine", "ejs");
 
 app.get("*", (req, res) => {
 	const reqPath = req.path === "/" ? "index" : req.path.slice(1);
-	const viewPath = path.join(currentDir, "views", `${reqPath}.ejs`)
+	const viewPath = path.join(currentDir, "views", `${reqPath}.ejs`);
 
 	res.render(viewPath, (err, html) => {
 		if (err) {
