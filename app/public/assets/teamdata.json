@@ -25,10 +25,10 @@
 	},
 	{
 		"image":"assets/default-profile.png",
-		"name": "Ben",
-		"role": "Role",
+		"name": "Benjamin",
+		"role": "HTML Co-ordinator and CSS assistant",
 		"biography": "Working my hardest to revert climate change",
 		"responsibility": "Creation and designing of Goals Pages, HTML/CSS/JS",
-		"contributions": ""
+		"contributions": "Writing the HTML, tweaking style.css and adding information onto the goals pages"
 	}
 ]

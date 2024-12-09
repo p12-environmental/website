@@ -11,6 +11,7 @@ pages, resources, and informational content designed to promote sustainability a
 | File                                    | Type | Lead Maintainer  |
 |-----------------------------------------|------|------------------|
 | [index.html](./app/public/index.html)   | HTML | Zekiah           |
+| [goals.html](./app/public/goal-3.html)  | HTML | Ben/Lewis        |
 | [goal-1.html](./app/public/goal-1.html) | HTML | Ben              |
 | [goal-2.html](./app/public/goal-2.html) | HTML | Ben              |
 | [goal-3.html](./app/public/goal-3.html) | HTML | Ben              |
