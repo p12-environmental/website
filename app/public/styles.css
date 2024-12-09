@@ -696,6 +696,10 @@ button {
 		opacity: 1;
 	}
 
+	.goals-linkdrop > button {
+		margin: 0;
+	}
+
 	nav ul li a {
 		width: 100%;
 		margin: 0;
