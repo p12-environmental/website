@@ -24,6 +24,7 @@ signupForm.addEventListener("submit", async function(event) {
 
 		const data = await response.json();
 		console.log("Form submitted successfully:", data);
+		window.location.href = "/submit"
 	}
 	catch (error) {
 		console.error("Error submitting form:", error);

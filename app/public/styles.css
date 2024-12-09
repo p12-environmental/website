@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
 	margin: 0;
 	padding: 0;
 	overflow-y: auto;
@@ -163,6 +164,7 @@ nav ul li a:hover {
 main {
 	display: flex;
 	flex-wrap: wrap;
+	flex-direction: column;
 	flex-grow: 1;
 }
 
@@ -183,7 +185,6 @@ main {
 }
 
 .member ul {
-	list-style-type: none;
 	margin: 0px;
 	padding: 0px;
 }
@@ -193,11 +194,8 @@ main {
 	padding: 0px;
 }
 
-.member li::before {
-	content: "> ";
-}
 
-.member h3{
+.member h3 {
 	text-align: center;
 }
 
@@ -275,7 +273,7 @@ h4 {
 	margin: 20px;
 }
 
-#home h3{
+#home h3 {
 	text-align: left;
 }
 
@@ -413,7 +411,9 @@ nav {
 }
 
 
-.box-one, .box-two, .box-three {
+.box-one,
+.box-two,
+.box-three {
 	width: 100%;
 	margin: 50px;
 	display: flex;
@@ -421,11 +421,11 @@ nav {
 	justify-content: space-around;
 }
 
-.box-one img{
+.box-one img {
 	width: 30vw;
 }
 
-.box-three img{
+.box-three img {
 	width: 20vw;
 }
 
@@ -436,21 +436,23 @@ nav {
 	margin-right: 0px;
 }
 
-.box-one p, .box-two p, .box-three p {
+.box-one p,
+.box-two p,
+.box-three p {
 	max-width: 50vw;
 }
 
 
-.goal-link{
+.goal-link {
 	text-decoration: none;
 }
 
-.goal-link img{
+.goal-link img {
 	width: 30%;
 	border-radius: 50%;
 }
 
-.goal-link article{
+.goal-link article {
 	min-width: 80%;
 }
 
@@ -473,7 +475,7 @@ button {
 }
 
 
-#footerBtn{
+#footerBtn {
 	font-family: assistant;
 	font-weight: bold;
 	color: #EFF4F7;
@@ -520,11 +522,13 @@ button {
 	z-index: 0;
 }
 
-#goal1:before{
+#goal1:before {
 	content: "";
 	position: absolute;
-	top: 0; left: 0;
-	width: 100%; height: 100%;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 	background-image: url("assets/goal-1-title.webp");
 	filter: grayscale(60%) blur(2px);
 
@@ -533,15 +537,15 @@ button {
 	background-repeat: no-repeat;
 }
 
-.front{
+.front {
 	position: relative;
 }
 
-#goal3{
+#goal3 {
 	background-image: url("assets/goal-3-title.png");
 }
 
-#goal2{
+#goal2 {
 	background-image: url("assets/tree3.jpg");
 }
 
@@ -579,41 +583,55 @@ button {
 	background-color: rgba(0, 123, 255, 1);
 }
 
-.related-topics{
+.related-topics {
 	padding: 32px;
 }
 
-.overview{
+.overview {
 	display: flex;
+	gap: 8px;
+	padding: 8px;
 }
 
-.overview img{
+.overview img {
 	width: 30%;
 }
 
+#teamCards {
+	display: inline-block;
+	display: flex;
+	flex-wrap: wrap;
+}
 
-@media only screen and (max-width:786px){
+@media only screen and (max-width:786px) {
 
-	#home header img{
+	#home header img {
 		display: none;
 	}
 
-	h3{
+	h3 {
 		font-size: 4vw;
 	}
-	h2{
+
+	h2 {
 		font-size: 20vw
 	}
-	.box-two{
+
+	.box-two {
 		flex-direction: column;
 	}
-	.box-one img{
+
+	.box-one img {
 		display: none;
 	}
-	.box-three img{
+
+	.box-three img {
 		display: none;
 	}
-	.box-one p, .box-two p, .box-three p {
+
+	.box-one p,
+	.box-two p,
+	.box-three p {
 		max-width: none;
 	}
 

@@ -38,7 +38,7 @@ class MemberItem extends HTMLElement {
 customElements.define("member-item", MemberItem, { extends: "article" })
 
 document.addEventListener("DOMContentLoaded", () => {
-	const sectionElement = document.querySelector("main");
+	const sectionElement = document.querySelector("#teamCards");
 
 	fetch(localJsonFile)
 		.then(response => response.json())
