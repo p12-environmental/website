@@ -1,15 +1,20 @@
-<nav class="<%= wrapped ? 'wrapped' : '' %>">
+<nav class="nav-header <%= wrapped ? 'wrapped' : '' %>">
 	<a href="/"><img src="assets/logo.png" alt="logo"></a>
-	<ul class="nav-list">
+	<ul class="nav-list" id="navList">
 		<li><a href="/">Home</a></li>
 		<li><hr class="circle"></li>
 		<li id="goalsList">
-			<a href="goals" class="<%= page == 'goals' ? 'active' : '' %>">Our Goals <i id="arrow" class="fa-solid fa-caret-down"></i></a>
+			<div class="goals-linkdrop">
+				<a href="goals" class="<%= page == 'goals' ? 'active' : '' %>">Our Goals</a>
+				<button type="button" id="goalsDropBtn">
+					<i class="fa-solid fa-caret-down"></i>
+				</button>
+			</div>
 			<nav id="dropDown">
 				<ul>
-					<li><a>Climate Action</a></li>
-					<li><a>Sustainable Consumption and Production</a></li>
-					<li><a>Biodiversity, Forests, and Desertification</a></li>
+					<li><a href="/goal-1">Climate Action</a></li>
+					<li><a href="/goal-2">Sustainable Consumption and Production</a></li>
+					<li><a href="/goal-3">Biodiversity, Forests, and Desertification</a></li>
 				</ul>
 			</nav>
 		</li>
@@ -18,4 +23,7 @@
 		<li><hr class="circle"></li>
 		<li><a class="<%= page == 'form' ? 'active' : '' %>" href="form">Newsletter</a></li>
 	</ul>
+	<button type="button" id="hamburger">
+		<i class="fa-solid fa-bars" id="hamburgerIcon"></i>
+	</button>
 </nav>

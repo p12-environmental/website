@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
 	margin: 0;
 	padding: 0;
 	overflow-y: auto;
@@ -58,8 +59,9 @@ body {
 	background: #555;
 }
 
-nav {
+.nav-header {
 	display: flex;
+	min-height: 94px;
 	flex-wrap: nowrap;
 	justify-content: space-between;
 	align-items: flex-start;
@@ -68,6 +70,14 @@ nav {
 nav.wrapped {
 	background-color: #c5e2ff;
 	border-bottom: solid 3px #2a519d;
+}
+
+#hamburger {
+	display: none;
+}
+
+#hamburger:hover {
+	color: #2554a7;
 }
 
 #home {
@@ -115,16 +125,25 @@ nav ul li a {
 	transition: .2s background-color, .2s color;
 }
 
-#arrow {
-	font-size: 15px;
-}
-
-#goalsList nav {
-	background-color: #3363c2;
+#dropDown {
+	background-color: white;
+	border: solid 3px #2a519d;
 	border-radius: 15px;
 	position: relative;
-	left: 30px;
-	width: 60%;
+	left: 0;
+	top: 56px;
+	width: 256px;
+	display: none;
+}
+
+#dropDown ul {
+	display: flex;
+	flex-direction: column;
+}
+
+#dropDown a {
+	margin: 0;
+	padding: 0;
 }
 
 #goalsList nav li {
@@ -133,8 +152,37 @@ nav ul li a {
 	flex-direction: column;
 }
 
-#dropDown {
-	display: none;
+#goalsList {
+	position: relative;
+}
+
+.goals-linkdrop {
+	display: flex;
+	width: 100%;
+}
+
+.goals-linkdrop > a {
+	margin-right: 0;
+	padding-right: 20px;
+}
+
+.goals-linkdrop > button {
+	margin: 10px 0px;
+	padding: 10px;
+	border-radius: 4px;
+	border: none;
+	background: transparent;
+	color: white;
+	font-size: 19px;
+}
+
+#goalsDropBtn:hover {
+	background-color: #2554a7;
+}
+
+#dropDown.open {
+	display: block;
+	position: absolute;
 }
 
 .nav-visible {
@@ -163,6 +211,7 @@ nav ul li a:hover {
 main {
 	display: flex;
 	flex-wrap: wrap;
+	flex-direction: column;
 	flex-grow: 1;
 }
 
@@ -183,7 +232,6 @@ main {
 }
 
 .member ul {
-	list-style-type: none;
 	margin: 0px;
 	padding: 0px;
 }
@@ -193,11 +241,8 @@ main {
 	padding: 0px;
 }
 
-.member li::before {
-	content: "> ";
-}
 
-.member h3{
+.member h3 {
 	text-align: center;
 }
 
@@ -271,11 +316,11 @@ h4 {
 	font-size: 23px;
 }
 
-#home div {
+.home-title-container {
 	margin: 20px;
 }
 
-#home h3{
+#home h3 {
 	text-align: left;
 }
 
@@ -316,7 +361,7 @@ body {
 }
 
 
-nav {
+.nav-header {
 	width: 100%;
 	color: white;
 	padding: 10px 0;
@@ -371,7 +416,7 @@ nav {
 	padding: 0px;
 }
 
-#signupForm {
+#contactForm {
 	display: flex;
 	flex-direction: column;
 	gap: 15px;
@@ -379,9 +424,9 @@ nav {
 
 
 
-#signupForm input[type="text"],
-#signupForm input[type="email"],
-#signupForm textarea {
+#contactForm input[type="text"],
+#contactForm input[type="email"],
+#contactForm textarea {
 	width: 100%;
 	padding: 10px;
 	border: 1px solid #ccc;
@@ -390,13 +435,13 @@ nav {
 	box-sizing: border-box;
 }
 
-#signupForm textarea {
+#contactForm textarea {
 	resize: none;
 	height: 80px;
 }
 
 
-#signupForm button {
+#contactForm button {
 	padding: 10px 20px;
 	border: none;
 	border-radius: 5px;
@@ -408,12 +453,14 @@ nav {
 	align-self: flex-start;
 }
 
-#signupForm button:hover {
+#contactForm button:hover {
 	background-color: #2554a7;
 }
 
 
-.box-one, .box-two, .box-three {
+.box-one,
+.box-two,
+.box-three {
 	width: 100%;
 	margin: 50px;
 	display: flex;
@@ -421,11 +468,11 @@ nav {
 	justify-content: space-around;
 }
 
-.box-one img{
+.box-one img {
 	width: 30vw;
 }
 
-.box-three img{
+.box-three img {
 	width: 20vw;
 }
 
@@ -436,21 +483,23 @@ nav {
 	margin-right: 0px;
 }
 
-.box-one p, .box-two p, .box-three p {
+.box-one p,
+.box-two p,
+.box-three p {
 	max-width: 50vw;
 }
 
 
-.goal-link{
+.goal-link {
 	text-decoration: none;
 }
 
-.goal-link img{
+.goal-link img {
 	width: 30%;
 	border-radius: 50%;
 }
 
-.goal-link article{
+.goal-link article {
 	min-width: 80%;
 }
 
@@ -472,8 +521,11 @@ button {
 	border-radius: 50px;
 }
 
+#newsletterForm {
+	display: flex;
+}
 
-#footerBtn{
+#footerBtn {
 	font-family: assistant;
 	font-weight: bold;
 	color: #EFF4F7;
@@ -501,11 +553,8 @@ button {
 	border-color: black;
 	color: white;
 	position: relative;
-	right: 90px;
+	margin-left: -90px;
 }
-
-
-
 
 .goal-header {
 	text-align: center;
@@ -516,28 +565,37 @@ button {
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 	margin: 0px;
 	background-position: center center;
+	position: relative;
+	z-index: 0;
 }
 
-#goal1{
+#goal1:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 	background-image: url("assets/goal-1-title.webp");
+	filter: grayscale(60%) blur(2px);
+
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
-#goal3{
+.front {
+	position: relative;
+}
+
+#goal3 {
 	background-image: url("assets/goal-3-title.png");
 }
 
-#goal2{}
-
-.header h1 {
-	font-size: 2.5rem;
-	margin-bottom: 10px;
+#goal2 {
+	background-image: url("assets/tree3.jpg");
 }
 
-.header p {
-	font-size: 1.2rem;
-	max-width: 700px;
-	margin: 0 auto;
-}
 
 .dropdown {
 	display: flex;
@@ -572,37 +630,148 @@ button {
 	background-color: rgba(0, 123, 255, 1);
 }
 
-.related-topics{
+.related-topics {
 	padding: 32px;
 }
 
-.overview
+.overview {
+	display: flex;
+	gap: 8px;
+	padding: 8px;
+}
 
+.overview img {
+	width: 30%;
+}
 
+#teamCards {
+	display: inline-block;
+	display: flex;
+	flex-wrap: wrap;
+}
 
+.nav-header::before {
+	content: " ";
+	position: fixed;
+	background-color: black;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	pointer-events: none;
+	transition: .2s opacity;
+}
 
-@media only screen and (max-width:786px){
+@media only screen and (max-width:786px) {
+	.nav-header {
+		position: sticky;
+		top: 0px;
+	}
 
-	#home header img{
+	.nav-list {
+		position: fixed;
+		right: 0px;
+		display: flex;
+		flex-direction: column;
+		width: min(360px, 80%);
+		background: white;
+		margin: 0;
+		padding-top: 96px;
+		top: 0;
+		border-left: 1px solid blue;
+		height: 100%;
+		transform: translateX(100%);
+		opacity: 0;
+		transition: .4s transform, .4s opacity;
+	}
+
+	nav:has(.nav-list.open)::before {
+		opacity: 0.4;
+		pointer-events: all;
+	}
+
+	.nav-list.open {
+		transform: translateX(0%);
+		opacity: 1;
+	}
+
+	.goals-linkdrop > button {
+		margin: 0;
+	}
+
+	nav ul li a {
+		width: 100%;
+		margin: 0;
+	}
+
+	.active {
+		border-bottom: none;
+		border-left: solid 4px #3363c2;
+	}
+
+	.circle {
+		border-radius: 0;
+		background: grey;
+		height: 1px;
+		margin: 8px;
+		width: calc(100% - 16px);
+	}
+
+	#hamburger {
+		display: block;
+		background-color: transparent;
+		border: none;
+		font-size: 32px;
+		align-self: center;
+		margin: 8px;
+		color: #3363c2;
+		cursor: pointer;
+		z-index: 2;
+	}
+
+	#dropDown.open {
+		position: static;
+		width: 100%;
+		border: none;
+		background-color: transparent;
+	}
+
+	#dropDown a {
+		display: block;
+	}
+
+	#goalsDropBtn {
+		color: #3363c2;
+	}
+
+	#home header img {
 		display: none;
 	}
 
-	h3{
+	h3 {
 		font-size: 4vw;
 	}
-	h2{
+
+	h2 {
 		font-size: 20vw
 	}
-	.box-two{
+
+	.box-two {
 		flex-direction: column;
 	}
-	.box-one img{
+
+	.box-one img {
 		display: none;
 	}
-	.box-three img{
+
+	.box-three img {
 		display: none;
 	}
-	.box-one p, .box-two p, .box-three p {
+
+	.box-one p,
+	.box-two p,
+	.box-three p {
 		max-width: none;
 	}
 
@@ -611,7 +780,17 @@ button {
 		padding: 20px;
 	}
 
-	#signupForm {
+	#contactForm {
 		gap: 10px;
+	}
+
+	footer {
+		flex-direction: column;
+		padding: 8px;
+		row-gap: 8px;
+	}
+
+	#footerEmail {
+		width: auto;
 	}
 }

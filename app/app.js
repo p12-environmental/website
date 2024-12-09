@@ -3,7 +3,7 @@ import express from "express";
 import Database from 'better-sqlite3';
 import swaggerUi from "swagger-ui-express";
 import { rateLimit } from "express-rate-limit";
-import { body, validationResult } from "express-validator";
+import { body, query, validationResult } from "express-validator";
 import nodemailer from "nodemailer";
 import crypto from "crypto";
 import { fileURLToPath } from "url";
@@ -14,6 +14,7 @@ const configPath = "server-config.json";
 if (!fs.existsSync(configPath)) {
 	fs.writeFileSync(configPath, JSON.stringify({
 		port: 8080,
+		baseUrl: "http://localhost:8080",
 		email: {
 			host: "",
 			port: 587,
@@ -67,8 +68,8 @@ app.use(rateLimit({ windowMs: 15 * 60 * 1000, limit: 100, standardHeaders: "draf
 app.set("view engine", "ejs");
 
 app.get("*", (req, res) => {
-    const reqPath = req.path === "/" ? "index" : req.path.slice(1);
-	const viewPath = path.join(currentDir, "views", `${reqPath}.ejs`)
+	const reqPath = req.path === "/" ? "index" : req.path.slice(1);
+	const viewPath = path.join(currentDir, "views", `${reqPath}.ejs`);
 
 	res.render(viewPath, (err, html) => {
 		if (err) {
@@ -83,10 +84,10 @@ app.get("*", (req, res) => {
 		}
 
 		res.send(html);
-	})	
-})
+	});
+});
 
-app.post("/mailing/subscribe",
+app.post("/api/mailing/subscribe",
 	body("email")
 		.trim()
 		.isEmail(),
@@ -108,19 +109,35 @@ app.post("/mailing/subscribe",
 		const stmt = db.prepare("INSERT INTO MailingList (email, date, unsubscribeToken) VALUES (?, ?, ?)");
 		stmt.run(email, date, unsubscribeToken);
 
-		const info = await transporter.sendMail({
-			from: config.email.fromEmail,
-			to: email,
-			subject: "P12-Environmental mailing list confirmation",
-			html: "<h1>Welcome to the P12-Environmental mailing list.</h1>\t",
-		});
+		const params = new URLSearchParams();
+		params.set("email", email);
+		params.set("unsubscribeToken", unsubscribeToken);
+		params.set("accept", "text/html");
 
-		console.log(info)
-		res.status(200).json({ message: "Confirmation sent successfully, please check your inbox" })
+		try {
+			const info = await transporter.sendMail({
+				from: config.email.fromEmail,
+				to: email,
+				subject: "P12-Environmental mailing list confirmation",
+				html: `<h1>Welcome to the P12-Environmental mailing list.</h1>
+					<a href="${config.baseUrl}/unsubscribe?${params.toString()}">Unsubscribe</a>
+				`,
+			});
+			if (!info.accepted.includes(email) || info.rejected.includes(email)) {
+				res.status(422).json({ message: "Failed to send confirmation email: email was rejected" });
+			}
+			else {
+				res.status(200).json({ message: "Confirmation sent successfully, please check your inbox" })
+			}
+		}
+		catch (e) {
+			console.log("Failed to send confirmation email", e)
+			res.status(513).json({ message: "Failed to send confirmation email: internal server error" })
+		}
 	}
-)
+);
 
-app.post("/mailing/unsubscribe",
+app.post("/api/mailing/unsubscribe",
 	body("email")
 		.trim()
 		.isEmail(),
@@ -130,29 +147,22 @@ app.post("/mailing/unsubscribe",
 	(req, res) => {
 		const result = validationResult(req);
 		if (!result.isEmpty()) {
-			return res.status(400).json({ message: "Specified details were invalid", errors: result.array() });
+			return res.status(400).json({ message: "Invalid input", errors: result.array() });
 		}
 
 		const { email, unsubscribeToken } = req.body;
 		const stmt = db.prepare("DELETE FROM MailingList WHERE email = ? AND unsubscribeToken = ?");
-		stmt.run(email, unsubscribeToken);
+		const changes = stmt.run(email, unsubscribeToken).changes;
 
-		const accept = req.headers["accept"] ?? req.query["accept"];
-		if (accept === "text/html") {
-			res.writeHead(200, { "content-type": "text/html" });
-			res.write("<html>\n<head>\n\t<title>Unsubscribe</title>\n</head>\n<body>\n\t<h1>👋 Sorry to see you go!</h1>\n\t<p>You have successfully unsubscribed from our mailing list. You shouldn't receive emails from us again.</p>\n</body>\n</html>");
+		if (changes === 0) {
+			return res.status(404).json({ message: "Subscription not found or already unsubscribed" });
 		}
-		else if (!accept || accept === "application/json") {
-			res.status(200).json({ message: "You have successfully unsubscribed from the mailing list" });
-		}
-		else {
-			res.status(415).json({ message: "Specified accepted content type was invalid" });
-		}
-		return res.end();
+
+		res.status(200).json({ message: "Your email address has successfully been removed from our mailing list." });
 	}
-)
+);
 
-app.post("/contact",
+app.post("/api/contact",
 	body("firstName")
 		.trim()
 		.isString()
@@ -178,8 +188,8 @@ app.post("/contact",
 		const stmt = db.prepare("INSERT INTO ContactMessages (firstName, lastName, email, message) VALUES (?, ?, ?, ?)");
 		stmt.run(firstName, lastName, email, message);
 	}
-)
+);
 
 app.listen(config.port, () => {
-	console.log(`P12 Website server running on port ${config.port}`)
-})
+	console.log(`P12 Website server running on port ${config.port}`);
+});

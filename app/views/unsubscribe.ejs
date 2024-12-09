@@ -6,20 +6,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.css">
 	<link rel="stylesheet" href="styles.css">
-	<script src="src/team.js" defer></script>
+	<script src="src/unsubscribe.js" defer></script>
 	<script src="src/app.js" defer></script>
-	<title>Team Members</title>
+	<title>Unsubscribed</title>
 </head>
 <body>
-	<%- include("../partials/nav-header", { wrapped: true, page: "team" }); %>
+	<%- include("../partials/nav-header", { wrapped: true, page: "success" }); %>
 	<header>
-		<h1><strong>Team Members</strong></h1>
-		<h3>With a collective 18 years of experience our team are sure to provide you with accurate information.</h3>
+		<h1 id="header">Unsubscribing from mailing list...</h1>
 	</header>
 	<main>
-		<section id="teamCards">
-
-		</section>
+		<h3 id="description"></h3>
+		<a href="/">Home</a>
 	</main>
 	<%- include("../partials/footer"); %>
 </body>

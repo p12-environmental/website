@@ -8,49 +8,44 @@
 	<link rel="stylesheet" href="styles.css">
 	<link rel="stylesheet" href="goal.css">
 	<script src="src/goal-2.js" defer></script>
-	<title>Goal 2</title>
+	<script src="src/app.js" defer></script>
+	<title>Goal 2: Sustainable Consumption and Production</title>
 </head>
 <body>
 	<%- include("../partials/nav-header", { wrapped: true, page: "goal-2" }); %>
-	<header>
-		<h1><strong>Ensure sustainable consumption and production patterns</strong></h1>
+	<header class="goal-header" id="goal2">
+		<div class = "front">
+			<h1><strong>Sustainable consumption and production patterns</strong></h1>
+			<p>Aiming to promote resource efficiency, reduce environmental degradation, and improve quality of life by transforming how goods and services are produced and consumed.</p>
+		</div>
 	</header>
 	<main>
-		<header class="goal-header" id="goal2">
-			<h1>Sustainable Consumption and Production</h1>
-			<p>
-				Aiming to promote resource efficiency, reduce environmental degradation, 
-				and improve quality of life by transforming how goods and services are produced and consumed.
-			</p>
-		</header>
-		<main class="content">
-			<div class="related-topics">
-				<h3>Related Topics:</h3>
-				<div class="dropdown">
-					<details class="dropdown-details">
-						<summary>Correct disposal of waste</summary>
-						<p>
-							Correct disposal of waste emphasizes minimizing environmental harm, protecting public health, 
-							  and promoting sustainable waste management systems globally.
-						</p>
-					</details>
-					<details class="dropdown-details">
-						<summary>Sustainable Consumption and Production</summary>
-						<p>
-							Sustainable Consumption and Production involves focusing on reducing the environmental and social impacts of how goods and services are produced and consumed. 
-							It emphasizes resource efficiency, waste reduction, and the adoption of 
-							sustainable practices across industries, governments, and communities.
-						</p>
-					</details>
-					<details class="dropdown-details">
-						<summary>Sustainable Tourism </summary>
-						<p>
-							Sustainable Tourism promotes tourism that minimizes its environmental impact, preserves cultural
-							and natural heritage and contributes to local economies and communities and to Respect and celebrate local cultures, 
-							traditions, and heritage while avoiding over-commercialization.
-						</p>
-					</details>
-				</div>
+		<div class="related-topics">
+			<h3>Related Topics:</h3>
+			<div class="dropdown">
+				<details class="dropdown-details">
+					<summary>Correct disposal of waste</summary>
+					<p>
+						Correct disposal of waste emphasizes minimizing environmental harm, protecting public health, 
+						and promoting sustainable waste management systems globally.
+					</p>
+				</details>
+				<details class="dropdown-details">
+					<summary>Sustainable Consumption and Production</summary>
+					<p>
+						Sustainable Consumption and Production involves focusing on reducing the environmental and social impacts of how goods and services are produced and consumed. 
+						It emphasizes resource efficiency, waste reduction, and the adoption of 
+						sustainable practices across industries, governments, and communities.
+					</p>
+				</details>
+				<details class="dropdown-details">
+					<summary>Sustainable Tourism </summary>
+					<p>
+						Sustainable Tourism promotes tourism that minimizes its environmental impact, preserves cultural
+						and natural heritage and contributes to local economies and communities and to Respect and celebrate local cultures, 
+						traditions, and heritage while avoiding over-commercialization.
+					</p>
+				</details>
 			</div>
 			<div class="overview">
 				<h3>Overview:</h3>
@@ -61,9 +56,13 @@
 					It encourages nations to adopt policies and technologies that ensure environmentally sound disposal
 					and emphasizes the importance of community participation in reducing and sorting waste at its source.
 				</p>
+<<<<<<< HEAD
 			</div>
 			<div class="infographics">
 				<img src="assets/Goal2.png" alt="logo">
+=======
+				<img src="assets/goal2-overview.jpg" alt="overview image">
+>>>>>>> 6c0f0e9b3f25bfd1fceb1db2f90d1ba820bc12a9
 			</div>
 	</main>
 	<%- include("../partials/footer"); %>

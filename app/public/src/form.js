@@ -1,9 +1,9 @@
-const signupForm = document.getElementById("signupForm");
+const contactForm = document.getElementById("contactForm");
 
-signupForm.addEventListener("submit", async function(event) {
+contactForm.addEventListener("submit", async function(event) {
 	event.preventDefault();
 
-	const { firstName, lastName, email, message } = signupForm.elements; 
+	const { firstName, lastName, email, message } = contactForm.elements; 
 	const formData = {
 		firstName: firstName.value,
 		lastName: lastName.value,
@@ -11,21 +11,25 @@ signupForm.addEventListener("submit", async function(event) {
 		message: message.value
 	};
 
-	const jsonData = JSON.stringify(formData);
 	try {
-		// TODO: Dynamically insert server URL
-		const response = await fetch("http://localhost:8080/contact", {
+		const res = await fetch("/api/contact", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
 			},
-			body: jsonData
+			body: JSON.stringify(formData)
 		});
 
-		const data = await response.json();
-		console.log("Form submitted successfully:", data);
+		if (!res.ok) {
+			const error = await res.json();
+			console.error("Failed to send contact message:", error);
+		}
+
+		const data = await res.json();
+		console.log("Sucessfully sent contact message:", data);
+		window.location.href = "/submit"
 	}
 	catch (error) {
-		console.error("Error submitting form:", error);
+		console.error("Failed to submit form:", error);
 	}
 });
