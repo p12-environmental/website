@@ -71,6 +71,14 @@ nav.wrapped {
 	border-bottom: solid 3px #2a519d;
 }
 
+#hamburger {
+	display: none;
+}
+
+#hamburger:hover {
+	color: #2554a7;
+}
+
 #home {
 	background-image: linear-gradient(skyblue, white, skyblue);
 }
@@ -604,6 +612,56 @@ button {
 }
 
 @media only screen and (max-width:786px) {
+	.nav-list {
+		position: fixed;
+		right: 0px;
+		display: flex;
+		flex-direction: column;
+		width: min(360px, 60%);
+		background: white;
+		margin: 0;
+		top: 0;
+		border-left: 1px solid blue;
+		height: 100%;
+		transform: translateX(100%);
+		opacity: 0;
+		transition: .4s transform, .4s opacity;
+	}
+
+	.nav-list.open {
+		transform: translateX(0%);
+		opacity: 1;
+	}
+
+	nav ul li a {
+		width: 100%;
+		margin: 0;
+	}
+
+	.active {
+		border-bottom: none;
+		border-left: solid 4px #3363c2;
+	}
+
+	.circle {
+		border-radius: 0;
+        background: grey;
+        height: 1px;
+        margin: 8px;
+        width: calc(100% - 16px);
+	}
+
+	#hamburger {
+		display: block;
+		background-color: transparent;
+		border: none;
+		font-size: 24px;
+		align-self: center;
+		margin: 8px;
+		color: #3363c2;
+		cursor: pointer;
+		z-index: 2;
+	}
 
 	#home header img {
 		display: none;

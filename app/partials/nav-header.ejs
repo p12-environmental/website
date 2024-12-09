@@ -1,6 +1,6 @@
 <nav class="<%= wrapped ? 'wrapped' : '' %>">
 	<a href="/"><img src="assets/logo.png" alt="logo"></a>
-	<ul class="nav-list">
+	<ul class="nav-list" id="navList">
 		<li><a href="/">Home</a></li>
 		<li><hr class="circle"></li>
 		<li id="goalsList">
@@ -18,4 +18,7 @@
 		<li><hr class="circle"></li>
 		<li><a class="<%= page == 'form' ? 'active' : '' %>" href="form">Newsletter</a></li>
 	</ul>
+	<button type="button" id="hamburger">
+		<i class="fa-solid fa-bars"></i>
+	</button>
 </nav>

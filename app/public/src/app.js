@@ -1,4 +1,16 @@
 const newsletterForm = document.getElementById("newsletterForm");
+const goalList = document.getElementById("goalList");
+const dropDown = document.getElementById("dropDown");
+const navList = document.getElementById("navList");
+const hamburger = document.getElementById("hamburger");
+
+hamburger.addEventListener("click", function() {
+	navList.classList.toggle("open");
+});
+
+goalList.addEventListener("mouseover", function() {
+	dropDown.classList.toggle("open");
+});
 
 newsletterForm.addEventListener("submit", async function(e) {
 	e.preventDefault();
