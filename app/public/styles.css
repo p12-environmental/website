@@ -597,6 +597,9 @@ button {
 	position: relative;
 }
 
+.related-topics{
+	min-width: 40%;
+}
 
 .dropdown {
 	display: flex;
@@ -616,8 +619,7 @@ button {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	max-width: 400px;
-	width: 200%;
+	max-width: 700px;
 	max-height: 36px;
 	transition: .2s border-radius, .2s max-height, .2s background-color;
 }
@@ -638,18 +640,14 @@ button {
 
 
 .overview {
-	display: flex;
-	gap: 8px;
-	padding: 20px 0px;
-	flex-direction: column;
+	padding: 20px;
 }
 
 #goalContent{
-	margin: 20px;
+    margin: 20px;
     display: flex;
-    flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 .overview img {
