@@ -1,0 +1,21 @@
+{
+	"title": "Biodiversity, Forests, and Desertification",
+	"tagLine": "Protect life on land by promoting sustainable forest management, halting biodiversity loss, and combating desertification.",
+	"titleImgURL": "/assets/goal-3-title.png",
+	"relatedTopics": [
+		{
+			"summary": "Chemicals and waste",
+			"desc": "Reducing harmful chemicals and waste is crucial to protecting biodiversity. Proper disposal and sustainable alternatives help prevent contamination of ecosystems and groundwater, ensuring healthier environments for both humans and wildlife."
+		},
+		{
+			"summary": "Sustainable forest management",
+			"desc": "Sustainable forest management involves practices that maintain the health and productivity of forests while supporting the needs of local communities and economies. It includes reforestation, selective logging, and protecting old-growth forests to preserve biodiversity."
+		},
+		{
+			"summary": "Wildlife protection",
+			"desc": "Safeguarding wildlife is essential for maintaining ecological balance. Efforts such as creating protected habitats, preventing poaching, and mitigating human-wildlife conflicts contribute to preserving species and their roles in ecosystems."
+		}
+	],
+	"overview": "This goal focuses on preserving biodiversity, sustainable forest management, and reversing land degradation caused by desertification. Protecting ecosystems is essential for mitigating climate change and ensuring the survival of countless species.",
+	"imageSrc": "assets/goal3-overview.jpg"
+}

@@ -1,0 +1,25 @@
+{
+	"title": "Sustainable consumption and production patterns",
+	"tagLine": "Aiming to promote resource efficiency, reduce environmental degradation, and improve quality of life by transforming how goods and services are produced and consumed.",
+	"titleImgURL": "/assets/goal-2-title.jpg",
+	"relatedTopics": [
+		{
+			"summary": "Correct disposal of waste",
+			"desc": "Correct disposal of waste emphasizes minimizing environmental harm, protecting public health, and promoting sustainable waste management systems globally."
+		},
+		{
+			"summary": "Climate Action and Synergies",
+			"desc": "Sustainable forest management involves practices that maintain the health and productivity of forests while supporting the needs of local communities and economies. It includes reforestation, selective logging, and protecting old-growth forests to preserve biodiversity."
+		},
+		{
+			"summary": "Sustainable Consumption and Production",
+			"desc": "Sustainable Consumption and Production involves focusing on reducing the environmental and social impacts of how goods and services are produced and consumed. It emphasizes resource efficiency, waste reduction, and the adoption of sustainable practices across industries, governments, and communities."
+		},
+		{
+			"summary": "Sustainable Tourism",
+			"desc": "Sustainable Tourism promotes tourism that minimizes its environmental impact, preserves cultural and natural heritage and contributes to local economies and communities and to Respect and celebrate local cultures, traditions, and heritage while avoiding over-commercialization."
+		}
+	],
+	"overview": "Focuses on reducing the environmental, social, and health impacts of waste through sustainable management practices. This goal aims to minimize waste generation, improve disposal systems, and promote recycling and reuse to transition toward a circular economy. A significant aspect of this goal is raising global awareness and fostering collaboration among governments, industries, and individuals. It encourages nations to adopt policies and technologies that ensure environmentally sound disposal and emphasizes the importance of community participation in reducing and sorting waste at its source.",
+	"imageSrc": "assets/goal2-overview.jpg"
+}
