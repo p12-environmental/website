@@ -1,0 +1,150 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			font-family: "Assistant", sans-serif;
+			color: #3363c2;
+			margin: 0;
+			padding: 0;
+			line-height: 1.5;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.header {
+			font-family: "Assistant", sans-serif;
+			font-weight: lighter;
+			color: #3363c2;
+			font-weight: bold;
+			margin-top: 40px;
+			margin-top: 0px;
+			padding: 10px;
+			background-color: #c5e2ff;
+			border-bottom: solid 3px #2a519d;
+			display: flex;
+			column-gap: 10px;
+		}
+
+		.header h1 {
+			font-size: 2.5rem;
+			margin: 0;
+		}
+
+		.main {
+			background-image: url("https://github.com/p12-environmental/website/blob/main/app/public/assets/background-gradient.png?raw=true");
+		}
+
+		p {
+			font-size: 1.125rem;
+			margin: 20px 0;
+		}
+
+		li {
+			font-size: 1.125rem;
+		}
+
+		a {
+			color: #3363c2;
+			text-decoration: none;
+			font-weight: bold;
+		}
+
+		a:hover {
+			color: #2554a7;
+		}
+
+		.footer {
+			background: #c5e2ff;
+			border-top: solid 3px #2a519d;
+			display: inline-flex;
+			align-items: center;
+			justify-content: space-evenly;
+			position: relative;
+			min-height: 70px;
+			width: 100%;
+		}
+
+		.footer p {
+			font-size: 0.875rem;
+			color: #3363c2;
+			margin-bottom: 10px;
+		}
+
+		.social-links {
+			list-style: none;
+			padding: 0;
+			display: flex;
+			justify-content: center;
+			column-gap: 15px;
+		}
+
+		.social-links li {
+			font-size: 1.125rem;
+		}
+
+		.social-links a {
+			color: #3363c2;
+			text-decoration: none;
+		}
+
+		.social-links a:hover {
+			color: #2554a7;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="header" role="heading" aria-level="1">
+		<a href="<%= baseUrl %>">
+			<img src="https://github.com/p12-environmental/website/blob/main/app/public/assets/logo.png?raw=true" alt="P12-Environmental">
+		</a>
+		<h1>Welcome to the P12-Environmental Mailing List!</h1>
+	</div>
+	<div class="main" role="main">
+		<p>
+			Thank you for joining the P12-Environmental community. We're excited to
+			have you on board as we work together towards creating a sustainable
+			future!
+		</p>
+		<p>As part of our mailing list, you'll receive updates on:</p>
+		<ul>
+			<li>Environmental news and updates</li>
+			<li>Upcoming initiatives and events</li>
+			<li>Educational resources on sustainability</li>
+			<li>
+				Insights on climate change, renewable energy, and green technology
+			</li>
+		</ul>
+		<p>
+			To ensure you never miss an update, we recommend adding our email to
+			your safe senders list. You can also customise your preferences at any
+			time through the links below.
+		</p>
+		<p>
+			If you didn’t subscribe or if you’ve changed your mind, you can
+			<a href="<%= unsubscribeUrl %>">unsubscribe here</a>.
+		</p>
+		<p>
+			We'd love to hear your thoughts and ideas! Feel free to reply to this
+			email or join our discussions on our
+			<a href="<%= config.baseUrl %>/community-forum">community forum</a>.
+		</p>
+		<p>Thank you for being part of this journey towards a greener planet!</p>
+		<p><strong>The P12-Environmental Team</strong></p>
+		<p>Follow us on social media for the latest updates:</p>
+		<ul class="social-links">
+			<li><a href="<%= baseUrl %>">Website</a></li>
+			<li><a href="https://github.com/p12-envirionmental">Github</a></li>
+			<li><a href="mailto:<%= unsubscribeEmail %>">Contact Us</a></li>
+		</ul>
+	</div>
+	<div class="footer" role="contentinfo">
+		<small>
+			If you no longer wish to receive emails from us, you can
+			<a href="<%= unsubscribeUrl %>">unsubscribe here</a>.
+		</small>
+	</div>
+</body>
+</html>
