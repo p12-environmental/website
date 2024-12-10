@@ -59,6 +59,10 @@ body {
 	background: #555;
 }
 
+p{
+	max-width: 50vw;
+}
+
 .nav-header {
 	display: flex;
 	min-height: 94px;
@@ -139,7 +143,15 @@ nav ul li a {
 #dropDown ul {
 	display: flex;
 	flex-direction: column;
+
 }
+
+#dropDown ul li{
+	border: 6px solid transparent;
+	box-shadow: 0 1.744px 13.95px 0 rgba(0, 0, 0, 0.10);
+	border-radius: 20px;
+}
+
 
 #dropDown a {
 	margin: 0;
@@ -493,11 +505,7 @@ body {
 	
 }
 
-.box-one p,
-.box-two p,
-.box-three p {
-	max-width: 50vw;
-}
+
 
 
 .goal-link{
@@ -628,14 +636,20 @@ button {
 	background-color: rgba(0, 123, 255, 1);
 }
 
-.related-topics {
-	padding: 32px;
-}
 
 .overview {
 	display: flex;
 	gap: 8px;
-	padding: 8px;
+	padding: 20px 0px;
+	flex-direction: column;
+}
+
+#goalContent{
+	margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .overview img {
@@ -782,6 +796,13 @@ button {
 		max-width: 70%;
 	}
 
+	.box-two p{
+		max-width: none;
+	}
+
+	p{
+		max-width: 80%;
+	}
 
 	#formContainer {
 		padding: 20px;

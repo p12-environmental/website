@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			overviewImg.alt = "goal overview image";
 
 			overviewImgDiv.append(overviewImg);
-			sectionElement.append(relatedTopics, overview, overviewImg);
+			sectionElement.append(relatedTopics,overview,overviewImgDiv);
 		})
 		.catch(error => {
 			console.error("Error fetching goal JSON data:", error);
