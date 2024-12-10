@@ -4,16 +4,16 @@
 		"name": "Lewis",
 		"role": "Designer and Coordinator",
 		"biography": "Love helping to save the planet",
-		"responsibility": "Responsible for the pages overall design/UI and managing team members",
-		"contributions": "Writing styles.css and tweaking HTML, JS and JSON"
+		"responsibility": "Responsible for the pages overall design and UI development, while managing team members",
+		"contributions": "Developed styles.css, refined HTML and JavaScript, and updated JSON files"
 	},
 	{
 		"image":"assets/default-profile.png",
 		"name": "Zekiah",
 		"role": "Backend Developer & API Specialist",
-		"biography": "Researching on global warming mitigation technologies",
+		"biography": "Researching environmental technologies",
 		"responsibility": "Responsible for writing serverside backend code, handling client-server API requests and emails",
-		"contributions": "Mobile navbar CSS, swagger JSON definitions, serverside code and form JS"
+		"contributions": "Mobile navbar CSS, swagger API definitions and implemented backend code"
 	},
 	{
 		"image":"assets/default-profile.png",
@@ -26,9 +26,9 @@
 	{
 		"image":"assets/default-profile.png",
 		"name": "Benjamin",
-		"role": "HTML Co-ordinator and CSS assistant",
+		"role": "HTML Coordinator and CSS Assistant",
 		"biography": "Working my hardest to revert climate change",
-		"responsibility": "Creation and designing of Goals Pages, HTML/CSS/JS",
-		"contributions": "Writing the HTML, tweaking style.css and adding information onto the goals pages"
+		"responsibility": "Creation and designing of goals Pages, HTML, CSS and JavaScript",
+		"contributions": "Authored the HTML, refined styles in styles.css, and added content to the Goals pages"
 	}
 ]
