@@ -121,6 +121,7 @@ nav ul li a {
 	font-family: assistant;
 	font-size: large;
 	font-weight: bold;
+	color: #3363c2;
 	transition: .2s background-color, .2s color;
 }
 
