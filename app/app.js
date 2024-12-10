@@ -111,16 +111,17 @@ app.post("/api/mailing/subscribe",
 		await db.update(({ subscriptions }) => subscriptions.push(subscriptionObject))
 
 		// Send email and HTTP response
+		const { baseUrl } = config;
 		const params = new URLSearchParams();
 		params.set("email", email);
 		params.set("unsubscribeToken", unsubscribeToken);
 		params.set("accept", "text/html");
-		const unsubscribeUrl = `${config.baseUrl}/unsubscribe?${params.toString()}`
+		const unsubscribeUrl = `${baseUrl}/unsubscribe?${params.toString()}`
 		const unsubscribeEmail = `unsubscribe@${config.email.fromEmail}`
 		const emailTemplatePath = path.join(currentDir, "email-template.ejs")
 
 		try {
-			res.render(emailTemplatePath, { baseUrl: config.baseUrl, unsubscribeEmail, unsubscribeUrl }, async (err, html) => {
+			res.render(emailTemplatePath, { baseUrl, unsubscribeEmail, unsubscribeUrl }, async (err, html) => {
 			    if (err) {
 					console.log("Failed to render confirmation email", err);
 					return res.status(513).json({ message: "Failed to send confirmation email: internal server error" })
