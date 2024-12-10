@@ -27,7 +27,7 @@ contactForm.addEventListener("submit", async function(event) {
 
 		const data = await res.json();
 		console.log("Sucessfully sent contact message:", data);
-		window.location.href = "/submit"
+		window.location.href = "/success"
 	}
 	catch (error) {
 		console.error("Failed to submit form:", error);
