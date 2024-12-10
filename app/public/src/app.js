@@ -5,10 +5,19 @@ const navList = document.getElementById("navList");
 const hamburger = document.getElementById("hamburger");
 const hamburgerIcon = document.getElementById("hamburgerIcon");
 const goalsDropBtn = document.getElementById("goalsDropBtn");
+const goalsDropIcon = document.getElementById("goalsDropIcon");
 const nav = document.querySelector("nav");
 
 goalsDropBtn.addEventListener("click", function(e) {
-	dropDown.classList.toggle("open");
+	if (dropDown.classList.contains("open")) {
+		dropDown.classList.remove("open");
+		goalsDropIcon.classList.replace("fa-caret-up", "fa-caret-down");
+	}
+	else {
+		dropDown.classList.add("open");
+		goalsDropIcon.classList.replace("fa-caret-down", "fa-caret-up");
+	}
+	
 });
 
 nav.addEventListener("click", function(e) {

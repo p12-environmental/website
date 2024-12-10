@@ -129,10 +129,8 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# Databases
-*.db
-*.db-shm
-*.db-wal
+# Server databases
+db.json
 
 # Server configuration
 server-config.json

@@ -1,7 +1,6 @@
 "use strict";
 import express from "express";
-import sqlite3 from "sqlite3";
-import { open } from "sqlite";
+import { JSONFilePreset } from "lowdb/node";
 import swaggerUi from "swagger-ui-express";
 import { rateLimit } from "express-rate-limit";
 import { body, query, validationResult } from "express-validator";
@@ -11,49 +10,37 @@ import { fileURLToPath } from "url";
 import path from "path";
 import fs from "fs";
 
-const configPath = "server-config.json";
-if (!fs.existsSync(configPath)) {
-	fs.writeFileSync(configPath, JSON.stringify({
-		port: 8080,
-		baseUrl: "http://localhost:8080",
-		email: {
-			host: "",
-			port: 587,
-			secure: false,
-			auth: {
-				user: "",
-				pass: "",
-			},
-			fromEmail: ""
-		}
-	}, null, "\t"));
-	console.log("Config file created at", configPath, "please edit before running this server again");
-	process.exit(0);
+const defaultConfig = {
+	port: 8080,
+	baseUrl: "http://localhost:8080",
+	email: {
+		host: "",
+		port: 587,
+		secure: false,
+		auth: {
+			user: "",
+			pass: "",
+		},
+		fromEmail: ""
+	}
 }
-const config = JSON.parse(fs.readFileSync(configPath).toString());
+const configPath = "server-config.json";
+let config = null;
+if (!fs.existsSync(configPath)) {
+	fs.writeFileSync(configPath, JSON.stringify(defaultConfig, null, "\t"));
+	console.log("Config file created at", configPath, "please edit and restart the server to override defaults");
+	config = JSON.parse(fs.readFileSync(configPath).toString());
+}
+else {
+	config = JSON.parse(fs.readFileSync(configPath).toString());
+}
+if (config == null) {
+	console.error("Could not find server config at", configPath, "or provided config was invalid")
+	process.exit(1)
+}
 const app = express();
 const swaggerDocument = JSON.parse(fs.readFileSync("swagger.json").toString());
-const db = await open({
-	filename: "server.db",
-	driver: sqlite3.Database
-});
-const createMailingList =
-	`CREATE TABLE IF NOT EXISTS MailingList(
-		email TEXT NOT NULL,
-		date INTEGER,
-		unsubscribeToken TEXT UNIQUE,
-		PRIMARY KEY (email)
-	);`;
-await db.exec(createMailingList);
-const createContactMessages =
-	`CREATE TABLE IF NOT EXISTS ContactMessages(
-		id INTEGER NOT NULL PRIMARY KEY,
-		firstName TEXT NOT NULL,
-		lastName TEXT,
-		email TEXT NOT NULL,
-		message TEXT NOT NULL
-	);`;
-await db.exec(createContactMessages);
+const db = await JSONFilePreset("db.json", { subscriptions: [], contactMessages: [] })
 const transporter = nodemailer.createTransport(config.email);
 
 const currentFile = fileURLToPath(import.meta.url);
@@ -69,6 +56,11 @@ app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(rateLimit({ windowMs: 15 * 60 * 1000, limit: 100, standardHeaders: "draft-7" }));
 // Use ejs as view rendering engine
 app.set("view engine", "ejs");
+
+app.get("/api/team", (req, res) => {
+    const filePath = path.join(currentDir, "team.json");
+    res.sendFile(filePath);
+});
 
 app.get("*", (req, res) => {
 	const reqPath = req.path === "/" ? "index" : req.path.slice(1);
@@ -101,24 +93,24 @@ app.post("/api/mailing/subscribe",
 		}
 
 		const { email } = req.body;
-		const subscribedStmt = await db.prepare("SELECT * FROM MailingList WHERE email = @email");
-		const subscribedResult = await subscribedStmt.get({
-			"@email": email
-		});
-		if (subscribedResult) {
+		const { subscriptions } = db.data;
+		const existingSubscription = subscriptions.find(subscription => subscription.email === email);
+		if (existingSubscription) {
 			res.status(400).json({ message: "This email has already been subscribed to the mailing list" });
 			return res.end();
 		}
 
-		const date = Date.now();
+		// Insert into db
+		const date = new Date();
 		const unsubscribeToken = crypto.randomBytes(64).toString("hex");
-		const stmt = await db.prepare("INSERT INTO MailingList (email, date, unsubscribeToken) VALUES (@email, @date, @unsubscribeToken)");
-		await stmt.run({
-			"@email": email,
-			"@date": date,
-			"@unsubscribeToken": unsubscribeToken
-		});
+		const subscriptionObject = {
+			email,
+			date,
+			unsubscribeToken
+		}
+		await db.update(({ subscriptions }) => subscriptions.push(subscriptionObject))
 
+		// Send email and HTTP response
 		const params = new URLSearchParams();
 		params.set("email", email);
 		params.set("unsubscribeToken", unsubscribeToken);
@@ -160,17 +152,19 @@ app.post("/api/mailing/unsubscribe",
 			return res.status(400).json({ message: "Invalid input", errors: result.array() });
 		}
 
+		// Insert into db
 		const { email, unsubscribeToken } = req.body;
-		const stmt = await db.prepare("DELETE FROM MailingList WHERE email = @email AND unsubscribeToken = @unsubscribeToken");
-		const deleteResult = await stmt.run({
-			"@email": email,
-			"@unsubscribeToken": unsubscribeToken
-		});
-
-		if (deleteResult.changes === 0) {
+		const { subscriptions } = db.data;
+		const foundSubscription = subscriptions.find(subscription => subscription.email === email);
+		if (!foundSubscription) {
 			return res.status(404).json({ message: "Subscription not found or already unsubscribed" });
 		}
-
+		if (foundSubscription.unsubscribeToken !== unsubscribeToken) {
+			return res.status(403).json({ message: "Specified unsubscription token was invalid" });
+		}
+		await db.update(({ subscriptions }) => subscriptions.splice(subscriptions.indexOf(foundSubscription), 1))
+		
+		// Send response
 		res.status(200).json({ message: "Your email address has successfully been removed from our mailing list." });
 	}
 );
@@ -192,19 +186,26 @@ app.post("/api/contact",
 		.trim()
 		.isEmail(),
 	async (req, res) => {
+		// Validate
 		const result = validationResult(req);
 		if (!result.isEmpty()) {
 			return res.status(400).json({ message: "Specified details were invalid", errors: result.array() });
 		}
 
+		// Insert into db
 		const { firstName, lastName, email, message } = req.body;
-		const stmt = await db.prepare("INSERT INTO ContactMessages (firstName, lastName, email, message) VALUES (@firstName, @lastName, @email, @message)");
-		await stmt.run({
-			"@firstName": firstName,
-			"@lastName": lastName,
-			"@email": email,
-			"@message": message
-		});
+		const date = new Date();
+		const { contactMessages } = db.data;
+		const largestId = Math.max(...contactMessages.map(contactMessage => contactMessage.id));
+		const contactMessageObject = {
+			id: largestId + 1,
+			firstName,
+			lastName,
+			email,
+			message,
+			date
+		};
+		await db.update(({ contactMessages }) => contactMessages.push(contactMessageObject))
 	}
 );
 
