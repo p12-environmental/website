@@ -5,15 +5,15 @@
 		"role": "Designer and Coordinator",
 		"biography": "Love helping to save the planet",
 		"responsibility": "Responsible for the pages overall design/UI and managing team members",
-		"contributions": "Writing styles.css and tweaking HTML,JS and JSON"
+		"contributions": "Writing styles.css and tweaking HTML, JS and JSON"
 	},
 	{
 		"image":"assets/default-profile.png",
 		"name": "Zekiah",
-		"role": "Role",
-		"biography": "Zekiah",
-		"responsibility": "",
-		"contributions": "contributions"
+		"role": "Backend Developer & API Specialist",
+		"biography": "Researching on global warming mitigation technologies",
+		"responsibility": "Responsible for writing serverside backend code, handling client-server API requests and emails",
+		"contributions": "Mobile navbar CSS, swagger JSON definitions, serverside code and form JS"
 	},
 	{
 		"image":"assets/default-profile.png",
