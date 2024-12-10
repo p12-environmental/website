@@ -94,13 +94,13 @@ document.addEventListener("DOMContentLoaded", function () {
 			overviewChart = document.createElement("div");
 			overviewChart.className = "donut-chart";
 
-			overviewLabel = document.createElement("div");
+			overviewLabel = document.createElement("p");
 			overviewLabel.className = "label";
 
-			overviewData.append(overviewChart, overviewLabel);
+			overviewChart.append(overviewLabel);
 
 			
-			sectionElement.append(relatedTopics, overview, overviewImg, overviewData);
+			sectionElement.append(relatedTopics, overview, overviewImg, overviewChart);
 		})
 		.catch(error => {
 			console.error("Error fetching goal JSON data:", error);
