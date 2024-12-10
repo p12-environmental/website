@@ -144,22 +144,23 @@ nav ul li a {
 #dropDown ul {
 	display: flex;
 	flex-direction: column;
-	gap:3px;
+	gap: 3px;
+	margin: 0;
 }
 
-#dropDown ul li{
+#dropDown ul li {
 	border: 6px solid transparent;
-	box-shadow: 0 1.744px 13.95px 0 rgba(0, 0, 0, 0.10);
 	border-radius: 20px;
-	
 }
+
 #dropDown ul li:hover{
 	transition: .2s background-color, .2s color;
 }
 
 #dropDown a {
+	display: block;
 	margin: 0;
-	padding: 0;
+	padding: 5px;
 }
 
 #goalsList nav li {

@@ -8,15 +8,15 @@ pages, resources, and informational content designed to promote sustainability a
 
 ## Project Structure and Contributors
 
-| File                                    | Type | Lead Maintainer  |
-|-----------------------------------------|------|------------------|
-| [index.html](./app/public/index.html)   | HTML | Zekiah           |
-| [goals.html](./app/public/goal-3.html)  | HTML | Ben/Lewis        |
-| [goal-1.html](./app/public/goal-1.html) | HTML | Ben              |
-| [goal-2.html](./app/public/goal-2.html) | HTML | Ben              |
-| [goal-3.html](./app/public/goal-3.html) | HTML | Ben              |
-| [team.html](./app/public/team.html)     | HTML | Lewis            |
-| [form.html](./app/public/form.html)     | HTML | Sidra            |
+| Page                                              | Type | Lead Maintainer  |
+|---------------------------------------------------|------|------------------|
+| [/index](./app/views/index.ejs)                   | EJS  | Lewis            |
+| [/goals](./app/views/goals.ejs)                   | EJS  | Ben/Lewis        |
+| [/goal](./app/views/goal.ejs)                     | EJS  | Ben              |
+| [/team](./app/views/team.ejs)                     | EJS  | Lewis            |
+| [/form](./app/views/form.ejs)                     | EJS  | Sidra            |
+| [/unsubscribe](./app/views/unsubscribe.ejs)       | EJS  | Zekiah           |
+| [/404](./app/views/404.ejs)                       | EJS  | Zekiah           |
 
 ## Development Guide:
 1. ### Cloning sources:
