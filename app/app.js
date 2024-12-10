@@ -23,7 +23,7 @@ const defaultConfig = {
 		},
 		fromEmail: ""
 	}
-}
+};
 const configPath = "server-config.json";
 let config = null;
 if (!fs.existsSync(configPath)) {
@@ -35,12 +35,12 @@ else {
 	config = JSON.parse(fs.readFileSync(configPath).toString());
 }
 if (config == null) {
-	console.error("Could not find server config at", configPath, "or provided config was invalid")
-	process.exit(1)
+	console.error("Could not find server config at", configPath, "or provided config was invalid");
+	process.exit(1);
 }
 const app = express();
 const swaggerDocument = JSON.parse(fs.readFileSync("swagger.json").toString());
-const db = await JSONFilePreset("db.json", { subscriptions: [], contactMessages: [] })
+const db = await JSONFilePreset("db.json", { subscriptions: [], contactMessages: [] });
 const transporter = nodemailer.createTransport(config.email);
 
 const currentFile = fileURLToPath(import.meta.url);
@@ -107,8 +107,8 @@ app.post("/api/mailing/subscribe",
 			email,
 			date,
 			unsubscribeToken
-		}
-		await db.update(({ subscriptions }) => subscriptions.push(subscriptionObject))
+		};
+		await db.update(({ subscriptions }) => subscriptions.push(subscriptionObject));
 
 		// Send email and HTTP response
 		const { baseUrl } = config;
@@ -116,15 +116,15 @@ app.post("/api/mailing/subscribe",
 		params.set("email", email);
 		params.set("unsubscribeToken", unsubscribeToken);
 		params.set("accept", "text/html");
-		const unsubscribeUrl = `${baseUrl}/unsubscribe?${params.toString()}`
-		const unsubscribeEmail = `unsubscribe@${config.email.fromEmail}`
-		const emailTemplatePath = path.join(currentDir, "email-template.ejs")
+		const unsubscribeUrl = `${baseUrl}/unsubscribe?${params.toString()}`;
+		const unsubscribeEmail = `unsubscribe@${config.email.fromEmail}`;
+		const emailTemplatePath = path.join(currentDir, "email-template.ejs");
 
 		try {
 			res.render(emailTemplatePath, { baseUrl, unsubscribeEmail, unsubscribeUrl }, async (err, html) => {
 			    if (err) {
 					console.log("Failed to render confirmation email", err);
-					return res.status(513).json({ message: "Failed to send confirmation email: internal server error" })
+					return res.status(513).json({ message: "Failed to send confirmation email: internal server error" });
 				}
 			  
 				const info = await transporter.sendMail({
@@ -140,13 +140,13 @@ app.post("/api/mailing/subscribe",
 					res.status(422).json({ message: "Failed to send confirmation email: email was rejected" });
 				}
 				else {
-					res.status(200).json({ message: "Confirmation sent successfully, please check your inbox" })
+					res.status(200).json({ message: "Confirmation sent successfully, please check your inbox" });
 				}
 			});
 		}
 		catch (e) {
 			console.log("Failed to send confirmation email", e)
-			res.status(513).json({ message: "Failed to send confirmation email: internal server error" })
+			res.status(513).json({ message: "Failed to send confirmation email: internal server error" });
 		}
 	}
 );
@@ -174,7 +174,7 @@ app.post("/api/mailing/unsubscribe",
 		if (foundSubscription.unsubscribeToken !== unsubscribeToken) {
 			return res.status(403).json({ message: "Specified unsubscription token was invalid" });
 		}
-		await db.update(({ subscriptions }) => subscriptions.splice(subscriptions.indexOf(foundSubscription), 1))
+		await db.update(({ subscriptions }) => subscriptions.splice(subscriptions.indexOf(foundSubscription), 1));
 		
 		// Send response
 		res.status(200).json({ message: "Your email address has successfully been removed from our mailing list." });
@@ -217,7 +217,8 @@ app.post("/api/contact",
 			message,
 			date
 		};
-		await db.update(({ contactMessages }) => contactMessages.push(contactMessageObject))
+		await db.update(({ contactMessages }) => contactMessages.push(contactMessageObject));
+		res.send(200).json({ message: "Message received successfully, we will get back to you shortly" });
 	}
 );
 
