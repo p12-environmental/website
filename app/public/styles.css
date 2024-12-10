@@ -804,6 +804,10 @@ button {
 		max-width: 80%;
 	}
 
+	#goalContent{
+		justify-content: normal;
+	}
+
 	#formContainer {
 		padding: 20px;
 	}
