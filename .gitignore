@@ -131,6 +131,9 @@ dist
 
 # Server databases
 db.json
+*.db
+*.db-shm
+*.db-wal
 
 # Server configuration
 server-config.json
