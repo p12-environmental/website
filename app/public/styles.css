@@ -801,4 +801,39 @@ button {
 	#footerEmail {
 		width: auto;
 	}
+
+	.donut-chart {
+		position: relative;
+		width: 200px;
+		height: 200px;
+		border-radius: 50%;
+		background: conic-gradient(
+		  #4caf50 0% 40%,   /* Segment 1 */
+		  #fffcaf50 4% 100%  /* Segment 4 */
+		);
+		animation: spin 4s linear infinite;
+	  }
+  
+	  .donut-chart::before {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 120px;
+		height: 120px;
+		background-color: #fff;
+		border-radius: 50%;
+		transform: translate(-50%, -50%);
+	  }
+  
+	  .label {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 16px;
+		font-weight: bold;
+		color: #333;
+		text-align: center;
+	  }
 }

@@ -94,7 +94,18 @@ document.addEventListener("DOMContentLoaded", function () {
 			overviewImg.alt = "goal overview image";
 
 			overviewImgDiv.append(overviewImg);
-			sectionElement.append(relatedTopics, overview, overviewImg);
+
+			//making pie charts
+			overviewChart = document.createElement("div");
+			overviewChart.className = "donut-chart";
+
+			overviewLabel = document.createElement("div");
+			overviewLabel.className = "label";
+
+			overviewData.append(overviewChart, overviewLabel);
+
+			
+			sectionElement.append(relatedTopics, overview, overviewImg, overviewData );
 		})
 		.catch(error => {
 			console.error("Error fetching goal JSON data:", error);
