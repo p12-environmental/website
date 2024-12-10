@@ -96,11 +96,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
 			overviewLabel = document.createElement("p");
 			overviewLabel.className = "label";
+			overviewLabel.textContent = "Dead Fish 35%"
+
+			overviewLabel2 = document.createElement("p");
+			overviewLabel2.className = "label";
+			overviewLabel2.textContent = "Trees Cut Down 55%"
+
+			overviewChart2 = document.createElement("div");
+			overviewChart2.className = "donut-chart";
+
+			overviewChart3 = document.createElement("div");
+			overviewChart3.className = "donut-chart";
+
+			overviewLabel3 = document.createElement("p");
+			overviewLabel3.className = "label";
+			overviewLabel3.textContent = "Water-Level Rise 13%"
+
+
 
 			overviewChart.append(overviewLabel);
-
+			overviewChart2.append(overviewLabel2);
+			overviewChart3.append(overviewLabel3);
 			
-			sectionElement.append(relatedTopics, overview, overviewImg, overviewChart);
+			
+			sectionElement.append(relatedTopics, overview,overviewChart,overviewChart2,overviewChart3,overviewImg);
 		})
 		.catch(error => {
 			console.error("Error fetching goal JSON data:", error);

@@ -654,7 +654,7 @@ button {
     flex-wrap: wrap;
 }
 
-.overview img {
+#goalContent img {
 	width: 30%;
 }
 
@@ -677,6 +677,54 @@ button {
 	transition: .2s opacity;
 }
 
+/* learnt from https://dev.to/afif/we-can-finally-animate-css-gradient-kdk*/
+
+@property --a {
+	syntax: "<angle>";
+	inherits: false;
+	initial-value: 0deg;
+  }
+  
+.donut-chart {
+	position: relative;
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	animation: spin 3s forwards;
+	background: conic-gradient(from var(--a), #3363c2 var(--a),rgba(127, 189, 240, 0.9) 0);
+	margin: 40px;
+  }
+
+
+  @keyframes spin{
+	0% {--a:0deg;}
+	100%{--a:240deg;}
+  }
+
+  .donut-chart::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 120px;
+	height: 120px;
+	background-color: #fff;
+	border-radius: 50%;
+	transform: translate(-50%, -50%);
+  }
+
+
+  .label {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 16px;
+	font-weight: bold;
+	color: #333;
+	text-align: center;
+	margin: 0;
+  }
 
 
 @media only screen and (max-width:786px) {
@@ -810,6 +858,10 @@ button {
 		justify-content: normal;
 	}
 
+	#goalContent img {
+		width: 100%;
+	}
+
 	#formContainer {
 		padding: 20px;
 	}
@@ -829,38 +881,4 @@ button {
 		width: auto;
 	}
 
-	.donut-chart {
-		position: relative;
-		width: 200px;
-		height: 200px;
-		border-radius: 50%;
-		background: conic-gradient(
-		  #4caf50 0% 40%,   /* Segment 1 */
-		  #fffcaf50 4% 100%  /* Segment 4 */
-		);
-		animation: spin 4s linear infinite;
-	  }
-  
-	  .donut-chart::before {
-		content: "";
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		width: 120px;
-		height: 120px;
-		background-color: #fff;
-		border-radius: 50%;
-		transform: translate(-50%, -50%);
-	  }
-  
-	  .label {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		font-size: 16px;
-		font-weight: bold;
-		color: #333;
-		text-align: center;
-	  }
 }
