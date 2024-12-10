@@ -1,5 +1,3 @@
-const localJsonFile = "assets/teamdata.json";
-
 class MemberItem extends HTMLElement {
 	constructor() {
 		super();
@@ -40,7 +38,7 @@ customElements.define("member-item", MemberItem, { extends: "article" })
 document.addEventListener("DOMContentLoaded", () => {
 	const sectionElement = document.querySelector("#teamCards");
 
-	fetch(localJsonFile)
+	fetch("/api/team")
 		.then(response => response.json())
 		.then(responseData => {
 			for (item of responseData) {

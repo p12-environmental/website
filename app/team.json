@@ -1,0 +1,34 @@
+[
+	{
+		"image":"assets/default-profile.png",
+		"name": "Lewis",
+		"role": "Designer and Coordinator",
+		"biography": "Love helping to save the planet",
+		"responsibility": "Responsible for the pages overall design and UI development, while managing team members",
+		"contributions": "Developed styles.css, refined HTML and JavaScript, and updated JSON files"
+	},
+	{
+		"image":"assets/default-profile.png",
+		"name": "Zekiah",
+		"role": "Backend Developer & API Specialist",
+		"biography": "Researching environmental technologies",
+		"responsibility": "Responsible for writing serverside backend code, handling client-server API requests and emails",
+		"contributions": "Mobile navbar CSS, swagger API definitions and implemented backend code"
+	},
+	{
+		"image":"assets/default-profile.png",
+		"name": "Sidra",
+		"role": "Role",
+		"biography": "bio",
+		"responsibility": "responsibilty",
+		"contributions": "contributions"
+	},
+	{
+		"image":"assets/default-profile.png",
+		"name": "Benjamin",
+		"role": "HTML Coordinator and CSS Assistant",
+		"biography": "Working my hardest to revert climate change",
+		"responsibility": "Creation and designing of goals Pages, HTML, CSS and JavaScript",
+		"contributions": "Authored the HTML, refined styles in styles.css, and added content to the Goals pages"
+	}
+]

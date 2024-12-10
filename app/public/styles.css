@@ -173,10 +173,12 @@ nav ul li a {
 	background: transparent;
 	color: white;
 	font-size: 19px;
+	transition: .2s background-color, color;
 }
 
 #goalsDropBtn:hover {
 	background-color: #2554a7;
+	color: white;
 }
 
 #dropDown.open {
@@ -604,8 +606,13 @@ button {
 }
 
 .dropdown-details[open] {
+	flex-direction: column;
 	border-radius: 4px;
 	max-height: 256px;
+}
+
+.dropdown-details[open] > summary {
+    font-weight: bold;
 }
 
 .dropdown-details:hover {

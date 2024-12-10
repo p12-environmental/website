@@ -10,6 +10,39 @@
 		}
 	],
 	"paths": {
+		"/api/team": {
+			"get": {
+				"summary": "Retrieve team information",
+				"description": "Fetch the JSON file containing information about the team.",
+				"responses": {
+					"200": {
+						"description": "Team information retrieved successfully.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"example": {
+										"team": [
+											{
+												"name": "Alice",
+												"role": "Developer"
+											},
+											{
+												"name": "Bob",
+												"role": "Designer"
+											}
+										]
+									}
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "File not found."
+					}
+				}
+			}
+		},
 		"/api/mailing/subscribe": {
 			"post": {
 				"summary": "Subscribe to the mailing list",
