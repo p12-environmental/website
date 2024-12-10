@@ -218,7 +218,7 @@ app.post("/api/contact",
 			date
 		};
 		await db.update(({ contactMessages }) => contactMessages.push(contactMessageObject));
-		res.send(200).json({ message: "Message received successfully, we will get back to you shortly" });
+		return res.status(200).json({ message: "Message received successfully, we will get back to you shortly" });
 	}
 );
 
