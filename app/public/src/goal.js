@@ -13,6 +13,10 @@ document.addEventListener("DOMContentLoaded", function () {
 			}
 		})
 		.then(data => {
+			//finding the title tag
+			pageTitle = document.getElementsByTagName("title");
+			pageTitle.textContent = "Goal " + data.pageTitle;
+
 			//finding the header
 			headerElement = document.getElementById("goal-header");
 			headerElement.style.backgroundImage = `url("${data.titleImgURL}")`;
